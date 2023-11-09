@@ -44,15 +44,32 @@ defunciones_cat<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD VALENCIANA DEL 2007 AL 2021:
 defunciones_vlc<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/series-869225815sc_vlc.csv", 
                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EXTREMADURA DEL 2007 AL 2021:
+defunciones_extremadura<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-1186384838t_extremadura.csv", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
 
-defunciones_andalucia
-defunciones_aragon
-defunciones_asturias
-defunciones_baleares
-defunciones_canarias
-defunciones_cantabria
-defunciones_cyl
 
-defunciones_clm
-defunciones_cat
-defunciones_vlc
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN GALICIA DEL 2007 AL 2021:
+defunciones_gal<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series386793258sc_gal.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD DE MADRID DEL 2007 AL 2021:
+defunciones_mad<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series119180366sc_mad.csv", 
+                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA REGIÓN DE MURCIA DEL 2007 AL 2021:
+defunciones_mur<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-1650015035sc_murcia.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD FORAL DE NAVARRA DEL 2007 AL 2021:
+defunciones_nvr<-read_delim("C:/Users/34665/Downloads/series-1724737377sc_nvr.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFEUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EL PAÍS VASCO DEL 2007 AL 2021:
+defunciones_euskadi<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series137774152sc_euskadi.csv", 
+                                  delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA RIOJA DEL 2007 AL 2021:
+defunciones_rioja<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-573723813sc_rioja.csv", 
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+  
+  
+#HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
