@@ -61,14 +61,14 @@ defunciones_mad<- read_delim("DATOS/series119180366sc_mad.csv",
 defunciones_mrc<-read_delim("DATOS/series-1650015035sc_murcia.csv", 
                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD FORAL DE NAVARRA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25810)
-defunciones_nvr<-read_delim("DATOS/", 
+defunciones_nvr<-read_delim("DATOS/series-1724737377sc_nvr.csv", 
                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #DATOS DE DEFEUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EL PAÍS VASCO DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25809)
-defunciones_euskadi<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series137774152sc_euskadi.csv", 
+defunciones_euskadi<- read_delim("DATOS/series137774152sc_euskadi.csv", 
                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA RIOJA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25808)
-defunciones_rioja<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-573723813sc_rioja.csv", 
+defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv", 
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
   
