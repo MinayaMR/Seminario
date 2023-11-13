@@ -15,21 +15,21 @@ defunciones_andalucia<- read_delim("DATOS/series-616844354sc_andalucia.csv",
 
 
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN ARAGÓN DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25823 )
-defunciones_aragon<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-569481116sc_aragon.csv", 
+defunciones_aragon<- read_delim("DATOS/series-569481116sc_aragon.csv", 
                                 delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN ARAGÓN DEL 2007 AL 2021:( https://www.ine.es/consul/serie.do?d=true&s=ECM25822 )
-defunciones_asturias <- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-1904166149sc_asturias.csv", 
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EL PRINCIPADO DE ASTURIAS DEL 2007 AL 2021:( https://www.ine.es/consul/serie.do?d=true&s=ECM25822 )
+defunciones_asturias <- read_delim("DATOS/series-1904166149sc_asturias.csv", 
                                    delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LAS ISLAS BALEARES DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25821 )
-defunciones_baleares<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series1289952461sc_baleares.csv", 
+defunciones_baleares<- read_delim("DATOS/series1289952461sc_baleares.csv", 
                                  delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LAS ISLAS CANARIAS DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25820)
-defunciones_canarias<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series1808648068sc_canarias.csv", 
+defunciones_canarias<- read_delim("DATOS/series1808648068sc_canarias.csv", 
                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #DATOS DE DEFUNCIONES POR ENFERMEMEDADES RESPIRATORIAS EN CANTABRIA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25819)
-defunciones_cantabria<- read_delim("C:/Users/34665/Downloads/series-2108428772sc.csv", 
+defunciones_cantabria<- read_delim("DATOS/", 
                                    delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
