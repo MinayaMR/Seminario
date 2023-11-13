@@ -10,7 +10,7 @@ library(readr)
 
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN ANDALUCÍA DEL 2007 AL 2021:(NO SE ENCUJENTRAN DATOS JSON):(https://www.ine.es/consul/serie.do?d=true&s=ECM25824)
 
-defunciones_andalucia<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series-616844354sc_andalucia.csv", 
+defunciones_andalucia<- read_delim("DATOS/series-616844354sc_andalucia.csv", 
                                    delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
