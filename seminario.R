@@ -32,6 +32,7 @@ defunciones_canarias<- read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE
 defunciones_cantabria<- read_delim("C:/Users/34665/Downloads/series-2108428772sc.csv", 
                                    delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
+
 #DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN CASTILLA Y LEON DEL 2007 AL 2021: (https://www.ine.es/consul/serie.do?d=true&s=ECM25818)
 defunciones_cyl<-read_delim("C:/Users/34665/Downloads/SEMESTRE 5/FUENTE DE DATOS/MATERIAL SEMINARIO/defunciones por ccaa/series702246534sc_cyl.csv", 
                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
