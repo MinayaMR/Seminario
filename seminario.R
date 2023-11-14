@@ -74,3 +74,6 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
   
   
 #HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
+ 
+library(readxl)
+who_aap_2021_v9_11august2022 <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx")
