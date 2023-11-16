@@ -1,0 +1,14 @@
+CODIGO;NOMBRE;PROVINCIA;MUNICIPIO;ALTITUD;LATITUD;LONGITUD;DATUM
+ES01;San Pablo de los Montes;TOLEDO;San Pablo de los Montes;923 m;"39°32'47""N";"4°21'02""W";ETRS89
+ES05;Noia;A CORUÑA;Noia;686 m;" 42°43'15""N ";"8°55'25""W";ETRS89
+ES06;Mahón;ILLES BALEARS;Maó;78 m;"39°52'34""N";"4°19'26""E";ETRS89
+ES07;Víznar;GRANADA;Víznar;1258 m;"37°14'13""N";"3°32'02""W";ETRS89
+ES08;Niembro-Llanes;ASTURIAS;Llanes;132 m;"43°26'21""N";"4°50'59""W";ETRS89
+ES09;Campisábalos;GUADALAJARA;Campisábalos;1368 m;"41°16'27""N";"3°08'33""W";ETRS89
+ES10;Cabo de Creus;GIRONA;Cadaqués;75 m;"42°19'09""N";"3°18'56""E";ETRS89
+ES11;Barcarrota;BADAJOZ;Barcarrota;377 m;"38°28'22""N";"6°55'24""W";ETRS89
+ES12;Zarra;VALENCIA;Zarra;855 m;"39°04'58""N";"1°06'03""W";ETRS89
+ES13;Peñausende;ZAMORA;Peñausende;1003 m;"41°14'20""N";"5°53'51""W";ETRS89
+ES14;Els Torms;LLEIDA;Torms, Els;488 m;"41°23'36""N";"0°44'03""E";ETRS89
+ES16;O Saviñao;LUGO;Saviñao, O;560 m;"42°38'05""N";"7°42'17""W";ETRS89
+ES17;Doñana;HUELVA;Almonte;35 m;"37°03'07""N";"6°33'18""W";ETRS89
