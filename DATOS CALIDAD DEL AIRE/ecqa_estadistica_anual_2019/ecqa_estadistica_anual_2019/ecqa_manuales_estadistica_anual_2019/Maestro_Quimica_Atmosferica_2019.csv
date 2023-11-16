@@ -1,0 +1,14 @@
+CODIGO;NOMBRE;PROVINCIA;MUNICIPIO;ALTITUD;LONGITUD;LATITUD;DATUM
+ES01;San Pablo de los Montes;TOLEDO;San Pablo de los Montes;917 m;39º 32 ’49” N;4º 21’ 02” W;ETRS89
+ES05;Noia;A CORUÑA;Noia;685 m;42º 43’ 14” N;8º 55’ 25” W;ETRS89
+ES06;Mahón;ILLES BALEARS;Maó;78 m;39º 52’ 31” N;4º 18’ 59” E;ETRS89
+ES07;Víznar;GRANADA;Víznar;1.259 m;37º 14’ 14” N;3º 32’ 03” W;ETRS89
+ES08;Niembro-Llanes;ASTURIAS;Llanes;134 m; 43º 26’ 21” N;4º 51’ 00” W;ETRS89
+ES09;Campisábalos;GUADALAJARA;Campisábalos;1.370 m;41º 16’ 27” N;3º 08’ 33” W;ETRS89
+ES10;Cabo de Creus;GIRONA;Cadaqués;76 m;42º 19’ 09” N;3º 18’ 57” E;ETRS89
+ES11;Barcarrota;BADAJOZ;Barcarrota;376 m;38º 28’ 23” N;6º 55’ 25” W;ETRS89
+ES12;Zarra;VALENCIA;Zarra;852 m;39º 04’ 58” N; 1º 06’ 04” W;ETRS89
+ES13;Peñausende;ZAMORA;Peñausende;974 m; 41º 14’ 20” N; 5º 53’ 51” W;ETRS89
+ES14;Els Torms;LLEIDA;Torms, Els;495 m; 41º 23’ 38” N; 0º 44’ 05” E;ETRS89
+ES16;O Saviñao;LUGO;Saviñao, O;560 m;42º 38’ 05” N; 7º 42’ 17” W;ETRS89
+ES17;Doñana;HUELVA;Almonte;35 m;37º 03’ 07” N;6º 33’ 19” W;ETRS89
