@@ -77,3 +77,5 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
  
 library(readxl)
 who_aap_2021_v9_11august2022 <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx")
+
+
