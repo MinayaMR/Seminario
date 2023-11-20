@@ -171,6 +171,13 @@ mad_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
+#DATOS LIMPIADOS REGION DE MURCIA
+mrc_data<-
+  defunciones_mrc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
 
 
 
