@@ -178,8 +178,13 @@ mrc_data<-
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
 
+#DATOS LIMPIADOS NAVARRA
+nvr_data<-
+  defunciones_nvr %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
-
+  
 
 
 
