@@ -92,6 +92,7 @@ tabla_españa
 
  
 #PRUEBA PIPELINE :
+#IDM stands for INDICE DE MORTALIDAD:
 andalucia_data<-
   defunciones_andalucia %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
@@ -103,3 +104,10 @@ aragon_data<-
   defunciones_aragon %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA 
+asturias_data<-
+  defunciones_asturias %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+  
