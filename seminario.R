@@ -147,6 +147,14 @@ cyl_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
+#DATOS LIMPIADOS PARA PAÍS VASCO
+euskadi_data<-
+  defunciones_euskadi %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
+
 
 
 
