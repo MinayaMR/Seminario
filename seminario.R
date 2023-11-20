@@ -105,9 +105,17 @@ aragon_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
-#DATOS LIMPIADOS PARA 
+#DATOS LIMPIADOS PARA ASTURIAS:
 asturias_data<-
   defunciones_asturias %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA BALEARES
+baleares_data<-
+  defunciones_baleares %>%
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+  
+  
   
