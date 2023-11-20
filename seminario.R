@@ -76,6 +76,12 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
 #HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
 #AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
 
+#Datos diarios calidad aire valencia
+library(readr)
+rvvcca <- read_delim("DATOS/rvvcca.csv", 
+                     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
 
 library(readxl)
 oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
