@@ -95,8 +95,11 @@ tabla_españa
 andalucia_data<-
   defunciones_andalucia %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
-  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5)
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
 andalucia_data
-
-
+#DATOS LIMPIADOS PARA ARÁGON:
+aragon_data<-
+  defunciones_aragon %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
