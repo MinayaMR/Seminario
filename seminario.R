@@ -135,6 +135,13 @@ cat_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
+#DATOS LIMPIADOS PARA CASTILLA LA MANCHA
+clm_data<-
+  defunciones_clm %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
 
 
   
