@@ -190,7 +190,14 @@ rioja_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
+#DATOS LIMPIADOS C.VALENCIANA
 
+vlc_datos<-
+  defunciones_vlc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#HASTA AQUI SE HAN LIMPIADO TODAS LAS TABLAS DE DEFUNCIONES QUE VIENEN PARA CADA CCAA EXCEPTO LAS 2 CUIDADES AUTONOMAS DE CEUTA Y MELILLA
 
   
 
