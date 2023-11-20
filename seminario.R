@@ -117,5 +117,12 @@ baleares_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
   
-  
+#DATOS LIMPIADOS PARA CANARIAS
+canarias_data<-
+  defunciones_canarias %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LI
+
   
