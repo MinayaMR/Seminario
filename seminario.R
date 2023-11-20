@@ -78,6 +78,8 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
 
 
 library(readxl)
-who_aap_2021_v9_11august2022 <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx")
-
-
+oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
+                                                         sheet = "AAP_2022_city_v9")
+library(dplyr)
+tabla_españa<-oms_datos_mundiales %>% filter(`WHO Country Name` == "Spain")
+tabla_españa
