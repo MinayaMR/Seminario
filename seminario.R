@@ -76,6 +76,39 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
 #HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
 #AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
 
+library(readr)
+c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
+                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
+                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_aragon <- read_delim("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y león.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 library(readxl)
 oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
