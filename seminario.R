@@ -89,5 +89,14 @@ oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx",
 library(dplyr)
 tabla_españa<-oms_datos_mundiales %>% filter(`WHO Country Name` == "Spain")
 tabla_españa
+
  
-select(.data=defunciones_andalucia,Valor3,Variable5,Valor5,PERIODO,VALOR)
+#PRUEBA PIPELINE :
+andalucia_data<-
+  defunciones_andalucia %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5)
+
+andalucia_data
+
+
