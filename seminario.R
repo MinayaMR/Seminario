@@ -243,17 +243,23 @@ reprueba<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla andalucia sin separador de miles:
 
 andalucia_rec<-
   andalucia_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla aragon sin separador de miles:
 
 aragon_rec<-
   aragon_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla asturias sin separador de miles
 
+asturias_rec<-
+  asturias_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
 
 
