@@ -240,7 +240,23 @@ vlc_datos<-
 
 library(tidyverse)
 reprueba<-
-  vlc_datos %>% mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+  vlc_datos %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+andalucia_rec<-
+  andalucia_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+aragon_rec<-
+  aragon_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+
+
+
   
   
 
