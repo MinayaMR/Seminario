@@ -2,7 +2,7 @@
 title: "Seminario:Calidad del Aire y Defunciones por Enfermedades Respiratorias"
 author: "Aya Toussi,"
 date: "`r Sys.Date()`"
-output: slidy_presentation
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
