@@ -306,6 +306,12 @@ mad_rec<-
   mad_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla murcia sin separador de miles:
+
+mrc_rec<-
+  mrc_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
   
   
  
