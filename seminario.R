@@ -282,6 +282,11 @@ clm_rec<-
 cyl_rec<-
   cyl_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla euskadi sin separador de miles:
+euskadi_rec<-
+  euskadi_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
   
   
 
