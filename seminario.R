@@ -273,6 +273,10 @@ cat_rec<-
 cat_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla la mancha sin separador de miles:
+clm_rec<-
+  clm_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
   
   
 
