@@ -239,7 +239,7 @@ vlc_datos<-
 #SE DEBEN REVISAR LOS DATOS PARA QUITAR LOS SEPARADORES DE MILES DE LOS MILES PORQUE CREARAN PROBLEMAS A LA HORA DE JUNTARLOS 
 
 library(tidyverse)
-reprueba<-
+vlc_rec<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
@@ -311,6 +311,8 @@ mad_rec<-
 mrc_rec<-
   mrc_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
 
   
   
