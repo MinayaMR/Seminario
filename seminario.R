@@ -277,6 +277,11 @@ cat_data %>%
 clm_rec<-
   clm_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla cyl sin separador de miles:
+cyl_rec<-
+  cyl_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
   
   
 
