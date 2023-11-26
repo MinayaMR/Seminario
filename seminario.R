@@ -295,7 +295,10 @@ extremadura_rec<-
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
   
   
-
+#tabla galicia sin separador de miles:
+gal_rec<-
+  gal_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
   
   
