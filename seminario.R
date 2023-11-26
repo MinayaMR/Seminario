@@ -287,6 +287,12 @@ cyl_rec<-
 euskadi_rec<-
   euskadi_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+#tabla extremadura sin separador de miles:
+extremadura_rec<-
+  extremadura_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
   
   
 
