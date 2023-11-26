@@ -300,6 +300,12 @@ gal_rec<-
   gal_data %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
+#tabla madrid sin separador de miles:
+
+mad_rec<-
+  mad_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
   
   
  
