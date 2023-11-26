@@ -268,7 +268,10 @@ canarias_rec<-
 canarias_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
-
+#tabla cataluña sin separador de miles:
+cat_rec<-
+cat_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
   
   
