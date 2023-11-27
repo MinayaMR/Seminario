@@ -242,7 +242,7 @@ library(tidyverse)
 vlc_rec<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
-
+STR
 #tabla andalucia sin separador de miles:
 
 andalucia_rec<-
@@ -314,9 +314,9 @@ mrc_rec<-
 
 #FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
 
-  
-  
- 
+asturias_rec  
+canarias_rec
+rbind(asturias_rec,canarias_rec) 
   
 
 
