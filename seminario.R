@@ -341,47 +341,63 @@ mortalidad_07<-total_defunciones_CCAA %>%
   arrange(.data=.,desc(IDM))
 #2008:
 mortalidad_08<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2008)
+  filter(.data=.,Year==2008) %>% 
+  arrange(.data=.,desc(IDM))
 #2009:
 mortalidad_09<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2009)
+  filter(.data=.,Year==2009) %>% 
+  arrange(.data=.,desc(IDM))
 #2010:
 mortalidad_10<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2010)
+  filter(.data=.,Year==2010) %>% 
+  arrange(.data=.,desc(IDM))
 #2011:
 mortalidad_11<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2011)
+  filter(.data=.,Year==2011) %>% 
+  arrange(.data=.,desc(IDM))
 #2012:
 mortalidad_12<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2012)
+  filter(.data=.,Year==2012) %>% 
+  arrange(.data=.,desc(IDM))
 #2013
 mortalidad_13<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2013)
+  filter(.data=.,Year==2013) %>% 
+  arrange(.data=.,desc(IDM))
 #2014:
 mortalidad_14<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2014)
+  filter(.data=.,Year==2014) %>% 
+  arrange(.data=.,desc(IDM))
 #2015:
 mortalidad_15<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2015)
+  filter(.data=.,Year==2015) %>% 
+  arrange(.data=.,desc(IDM))
 #2016:
 mortalidad_16<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2016)
+  filter(.data=.,Year==2016) %>% 
+  arrange(.data=.,desc(IDM))
+
 #2017:
 mortalidad_17<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2017)
+  filter(.data=.,Year==2017) %>% 
+  arrange(.data=.,desc(IDM))
+  
 #2018:
 mortalidad_18<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2018)
+  filter(.data=.,Year==2018) %>% 
+  arrange(.data=.,desc(IDM))
 #2019:
 mortalidad_19<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2019)
+  filter(.data=.,Year==2019) %>% 
+  arrange(.data=.,desc(IDM))
 
 #2020:
 mortalidad_20<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2020)
+  filter(.data=.,Year==2020) %>% 
+  arrange(.data=.,desc(IDM))
 #2021:
 mortalidad_21<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2021)
+  filter(.data=.,Year==2021) %>% 
+  arrange(.data=.,desc(IDM))
   
 
 
