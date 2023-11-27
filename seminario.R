@@ -5,6 +5,7 @@ library(readxl)
 library(tidyverse)
 library(jsonlite)
 library(readr)
+library(dplyr)
 
 #CARGA DE DATOS DE DEFUNCIONES DE LAS CCAA QUE EMPIEZAN POR [A,B,C]:
 
@@ -75,25 +76,24 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
   
 #HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
 #AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
-
-<<<<<<< HEAD
+#HEAD
 #Datos diarios calidad aire valencia
 library(readr)
 rvvcca <- read_delim("DATOS/rvvcca.csv", 
                      delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
-=======
+
 library(readr)
 c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_andalucia)
+
 
 #c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
-View(calidad_aire_baleares)
+
 
 #c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
                              # delim = ";", escape_double = FALSE, trim_ws = TRUE)
@@ -101,44 +101,47 @@ View(calidad_aire_baleares)
 #c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
-View(calidad_aire_cataluña)
+
 
 c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_madrid)
+
 
 c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_murcia)
+
 #c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_valencia)
+
 
 calidad_de_aire_aragon <- read_csv("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv")
-View(calidad_de_aire_aragon)
+
 
 #c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y león.csv",
+c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_del_aire_castilla_y_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv", 
                                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(calidad_del_aire_castilla_y_leon)
->>>>>>> bdea6b1f95fe22fd92494e88d86937adc5551f96
+
+library(readr)
 
 library(readxl)
 oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
                                                          sheet = "AAP_2022_city_v9")
 library(dplyr)
-tabla_españa<-oms_datos_mundiales %>% filter(`WHO Country Name` == "Spain")
+tabla_españa<-
+  oms_datos_mundiales %>% 
+  filter(`WHO Country Name` == "Spain")
 tabla_españa
 
  
 #PRUEBA PIPELINE :
+#TRATAMIENTO DE DATOS DE DEFUNCIONES:
 #IDM stands for INDICE DE MORTALIDAD:
 andalucia_data<-
   defunciones_andalucia %>% 
@@ -225,7 +228,7 @@ mrc_data<-
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
 
-#DATOS LIMPIADOS NAVARRA
+#DATOS LIMPIADOS NAVARRA:
 nvr_data<-
   defunciones_nvr %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
@@ -248,12 +251,13 @@ vlc_datos<-
 
 #SE EMPIEZA A HACER UN JOIN DE LAS TABLAS DE DEFUNCIONES PARA TODAS LAS CCAA PARA DEMOSTRARLAS EN UN UNICA TABLA:
 #SE DEBEN REVISAR LOS DATOS PARA QUITAR LOS SEPARADORES DE MILES DE LOS MILES PORQUE CREARAN PROBLEMAS A LA HORA DE JUNTARLOS 
+#PARA QUE LOS DATOS SEAN COHERENTES,TENEMOS QUE CAMBIAR LOS DATOS QUE VIENEN SEPARADOS POR PUNTOS,LO CONSIDERAREMOS COMO MILES Y NO COMO INDICES COMO NO TENEMOS INDICADORES DEL CONTRARIO:
 
 library(tidyverse)
 vlc_rec<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
-STR
+str
 #tabla andalucia sin separador de miles:
 
 andalucia_rec<-
@@ -325,9 +329,8 @@ mrc_rec<-
 
 #FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
 
-asturias_rec  
-canarias_rec
-rbind(asturias_rec,canarias_rec) 
+
+total_defunciones_CCAA<-rbind(andalucia_rec,aragon_rec,asturias_rec,canarias_rec,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec) 
   
 
 
