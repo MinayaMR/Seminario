@@ -87,41 +87,47 @@ rvvcca <- read_delim("DATOS/rvvcca.csv",
 library(readr)
 c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(c_aire_andalucia)
 
-c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
-                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
+                             #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
-
 View(calidad_aire_baleares)
 
 #c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
                              # delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
+                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
 View(calidad_aire_cataluña)
 
 c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(c_aire_madrid)
 
 c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
+View(c_aire_murcia)
 #c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(c_aire_valencia)
 
 calidad_de_aire_aragon <- read_csv("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv")
 View(calidad_de_aire_aragon)
 
-c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
+                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y león.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+calidad_del_aire_castilla_y_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv", 
+                                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(calidad_del_aire_castilla_y_leon)
 >>>>>>> bdea6b1f95fe22fd92494e88d86937adc5551f96
 
 library(readxl)
