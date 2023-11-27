@@ -329,10 +329,60 @@ mrc_rec<-
 
 #FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
 
+#LA TABLA SIGUIENTE CONTIENE TODOS LOS DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021:
+total_defunciones_CCAA<-
+  rbind(andalucia_rec,aragon_rec,asturias_rec,baleares_data,canarias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) %>% 
+  arrange(.data=.,desc(IDM))
 
-total_defunciones_CCAA<-rbind(andalucia_rec,aragon_rec,asturias_rec,baleares_data,canarias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) 
+#POR AÑOS:
+#2007:
+mortalidad_07<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2007) %>% 
+  arrange(.data=.,desc(IDM))
+#2008:
+mortalidad_08<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2008)
+#2009:
+mortalidad_09<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2009)
+#2010:
+mortalidad_10<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2010)
+#2011:
+mortalidad_11<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2011)
+#2012:
+mortalidad_12<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2012)
+#2013
+mortalidad_13<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2013)
+#2014:
+mortalidad_14<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2014)
+#2015:
+mortalidad_15<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2015)
+#2016:
+mortalidad_16<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2016)
+#2017:
+mortalidad_17<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2017)
+#2018:
+mortalidad_18<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2018)
+#2019:
+mortalidad_19<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2019)
+
+#2020:
+mortalidad_20<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2020)
+#2021:
+mortalidad_21<-total_defunciones_CCAA %>% 
+  filter(.data=.,Year==2021)
   
-
 
 
 
