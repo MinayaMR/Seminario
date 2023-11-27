@@ -415,9 +415,23 @@ mortalidad_21<-total_defunciones_CCAA %>%
   arrange(.data=.,desc(IDM)) %>% 
   mutate(.data=.,IDM_nacional=sum(IDM))
 
+?ggplot
 
-  
+library(ggplot2)
 
+ggplot(total_defunciones_CCAA, aes(x = Year, y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "IDM por CCAA a lo largo de los años",
+       x = "Año",
+       y = "IDM") +
+  theme_minimal()
+
+ggplot(total_defunciones_CCAA, aes(x = Year, y = IDM, color = CCAA)) +
+  geom_point() +
+  labs(title = "IDM por CCAA a lo largo de los años",
+       x = "Año",
+       y = "IDM") +
+  theme_minimal()
 
 
 
