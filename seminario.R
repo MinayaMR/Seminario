@@ -338,66 +338,84 @@ total_defunciones_CCAA<-
 #2007:
 mortalidad_07<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2007) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2008:
 mortalidad_08<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2008) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2009:
 mortalidad_09<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2009) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2010:
 mortalidad_10<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2010) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2011:
 mortalidad_11<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2011) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
+
 #2012:
 mortalidad_12<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2012) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2013
 mortalidad_13<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2013) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2014:
 mortalidad_14<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2014) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2015:
 mortalidad_15<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2015) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2016:
 mortalidad_16<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2016) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 
 #2017:
 mortalidad_17<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2017) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
   
 #2018:
 mortalidad_18<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2018) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2019:
 mortalidad_19<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2019) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 
 #2020:
 mortalidad_20<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2020) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
 #2021:
 mortalidad_21<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2021) %>% 
-  arrange(.data=.,desc(IDM))
+  arrange(.data=.,desc(IDM)) %>% 
+  mutate(.data=.,IDM_nacional=sum(IDM))
+
+
   
 
 
