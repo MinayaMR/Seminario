@@ -109,8 +109,7 @@ c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.
 c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-c_aire_aragon <- read_delim("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+calidad_de_aire_aragon <- read_csv("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv")
 
 c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
