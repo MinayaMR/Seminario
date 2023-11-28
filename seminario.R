@@ -422,8 +422,8 @@ library(ggplot2)
 library(dplyr)
 
 
-
- ggplot(data=mortalidad_07, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+#
+ graph_2007<-ggplot(data=mortalidad_07, aes(x = factor(Year), y = IDM, fill = CCAA)) +
    geom_bar(stat = "identity", position = "dodge") +
    labs(title = "Comparación de Índice de Mortalidad por CCAA en 2007",
         x = "Año",
@@ -431,6 +431,76 @@ library(dplyr)
         fill = "CCAA") +
    theme_classic()
 
+ ggplot(data=mortalidad_08, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2008",
+        x = "Año",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
+ 
+ ggplot(data=mortalidad_09, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2009",
+        x = "Año",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
 
+ ggplot(data=mortalidad_10, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2010",
+        x = "Año",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
 
-
+ ggplot(data=mortalidad_11, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2011",
+        x = "Año",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
+ 
+ ggplot(data=mortalidad_10, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2010",
+        x = "Año",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
+ 
+ ggplot(data = mortalidad_10, aes(x = reorder(factor(CCAA), -IDM), y = IDM, fill = CCAA,width=0.9)) +
+   geom_bar(stat = "identity", position = "dodge") +
+   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2010",
+        x = "CCAA",
+        y = "Índice de Mortalidad",
+        fill = "CCAA") +
+   theme_classic()
+ 
+#Modificar los nombres de las CCAA para que sean mas manejables a la hora de trabajar con los gráficos:
+#Se cambian los nombres de las CCAA de nuestra tabla con un case when ,se añade otra columna con el promedio de IDM por CCAA a ,lo largo de los años representados:
+ 
+ ccaa_nuevos_nombres <- c("Madrid, Comunidad de" = "C. Madrid",
+                           "Comunitat Valenciana" = "C.Valenciana",
+                           "Castilla y León" = "CyL",
+                           "Castilla - La Mancha" = "CLM",
+                           "País Vasco" = "Euskadi",
+                          "Asturias, Principado de"="Asturias",
+                          "Murcia, Región de"="Murcia",
+                          "Balears, Illes"="Baleares",
+                          "Navarra, Comunidad Foral de"="Navarra",
+                          "Rioja, La"="Rioja")
+#  library(tidyverse)
+ 
+ total_defunciones_CCAA <-total_defunciones_CCAA %>%
+   mutate(CCAA = case_when(
+     CCAA %in% names(ccaa_nuevos_nombres) ~ ccaa_nuevos_nombres[CCAA],
+     TRUE ~ CCAA
+   ))  %>%
+   group_by(CCAA) %>%
+   drop_na() %>% 
+   mutate(Promedio_IDM = mean(IDM))
+ 
+ 
