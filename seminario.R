@@ -592,7 +592,7 @@ tabla_españa<-
   oms_datos_mundiales %>% 
   filter(`WHO Country Name` == "Spain")
 tabla_españa
-View(tabla_españa)
+
 
 #Aqui comienza la limpieza de tablas relacionadas con la calidad del aire.
 library(tidyverse)
@@ -638,7 +638,12 @@ valencia_data_calidad_2021<-
   drop_na() %>% 
   filter(substr(fecha, 1, 4) == "2021") %>% 
   summarise(.data=.,CCAA='Valencia',fecha='2021',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
-  
+
+#limpieza de la tabla excel 
+datos_calidad_aire_galicia<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("A Coruna", "As Pontes De Garcia Rodriguez","Cee"))
+
 
  
 
