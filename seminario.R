@@ -541,21 +541,21 @@ rvvcca <- read_delim("DATOS/rvvcca.csv",
 library(readr)
 c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
+View(c_aire_andalucia)
 
 #c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
+#calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
 
-
+View(calidad_aire_baleares)
 #c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
                              # delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
-
+View(calidad_aire_cataluña)
 
 c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
@@ -593,4 +593,18 @@ tabla_españa<-
   filter(`WHO Country Name` == "Spain")
 tabla_españa
 
+#Aqui comienza la limpieza de tablas relacionadas con la calidad del aire.
+andalucia_data<-
+  c_aire_andalucia %>% 
+  select(.data=.,F_FECHA, `'PM10'`, `'PM25'`, `'NO2'`, `'O3'`,`'SO2'`)
+View(andalucia_data)
+
+cataluña_data<-
+  calidad_aire_cataluña %>% 
+  select(.data=.,ANY, MES, MAGNITUD, `NOM CONTAMINANT`, UNITATS) %>% 
+  rename(.data=.,AÑO=ANY, NOMBRE_CONTAMINANTE=`NOM CONTAMINANT`, UNIDADES=UNITATS)
+View(cataluña_data)
+
+
+  
  
