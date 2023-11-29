@@ -621,7 +621,24 @@ valencia_data_calidad_2019<-
   filter(substr(fecha, 1, 4) == "2019") %>% 
   summarise(.data=.,CCAA='Valencia',fecha='2019',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
 
+#TABLA C.VALENCIANA PARA EL AÑO 2020 TRATADA Y LIMPIADA:
+valencia_data_calidad_2020<-
+c_aire_valencia %>% 
+  mutate(CCAA= "Valencia") %>% 
+  select(.data=.,CCAA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) %>%
+  drop_na() %>% 
+  filter(substr(fecha, 1, 4) == "2020") %>% 
+  summarise(.data=.,CCAA='Valencia',fecha='2020',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
 
+#TABLA C.VALENCIANA PARA EL AÑO 2021 TRATADA Y LIMPIADA:
+valencia_data_calidad_2021<-
+  c_aire_valencia %>% 
+  mutate(CCAA= "Valencia") %>% 
+  select(.data=.,CCAA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) %>%
+  drop_na() %>% 
+  filter(substr(fecha, 1, 4) == "2021") %>% 
+  summarise(.data=.,CCAA='Valencia',fecha='2021',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
+  
 
  
 
