@@ -612,16 +612,20 @@ cataluña_data_calidad<-
   select(.data=.,CCAA, ANY, MES, MAGNITUD, `NOM CONTAMINANT`, UNITATS) %>% 
   rename(.data=.,AÑO=ANY, NOMBRE_CONTAMINANTE=`NOM CONTAMINANT`, UNIDADES=UNITATS)
 
-
-valencia_data_calidad<-
+#TABLA C.VALENCIANA PARA EL AÑO 2019 TRATADA Y LIMPIADA:
+valencia_data_calidad_2019<-
   c_aire_valencia %>% 
-  drop_na() %>% 
   mutate(CCAA= "Valencia") %>% 
-  select(.data=.,CCAA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) 
+  select(.data=.,CCAA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) %>%
+  drop_na() %>% 
+  filter(substr(fecha, 1, 4) == "2019") %>% 
+  summarise(.data=.,CCAA='Valencia',fecha='2019',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
+
+
+
  
 
-
-
+  
 
   
  
