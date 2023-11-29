@@ -541,21 +541,21 @@ rvvcca <- read_delim("DATOS/rvvcca.csv",
 library(readr)
 c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_andalucia)
+
 
 #c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
 
-View(calidad_aire_baleares)
+
 #c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
                              # delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 #c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
-View(calidad_aire_cataluña)
+
 
 #c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
@@ -563,7 +563,7 @@ View(calidad_aire_cataluña)
 
 c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-View(c_aire_murcia)
+
 #c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
                               #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
@@ -595,23 +595,23 @@ tabla_españa
 View(tabla_españa)
 
 #Aqui comienza la limpieza de tablas relacionadas con la calidad del aire.
-
-andalucia_data<-
+library(tidyverse)
+andalucia_data_calidad<-
   c_aire_andalucia %>% 
   mutate(CC_AA="Andalucia") %>% 
   select(.data=.,CC_AA, F_FECHA, `'PM10'`, `'PM25'`, `'NO2'`, `'O3'`,`'SO2'`) %>% 
   rename(.data=.,FECHA=F_FECHA) %>% 
   na.omit(andalucia_data)
-View(andalucia_data)
 
-cataluña_data<-
+
+cataluña_data_calidad<-
   calidad_aire_cataluña %>% 
   mutate(CC_AA="Cataluña") %>% 
   select(.data=.,CC_AA, ANY, MES, MAGNITUD, `NOM CONTAMINANT`, UNITATS) %>% 
   rename(.data=.,AÑO=ANY, NOMBRE_CONTAMINANTE=`NOM CONTAMINANT`, UNIDADES=UNITATS)
-View(cataluña_data)
 
-valencia_data<-
+
+valencia_data_calidad<-
   c_aire_valencia %>% 
   mutate(CC_AA= "VAlencia") %>% 
   select(.data=.,CC_AA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) %>% 
