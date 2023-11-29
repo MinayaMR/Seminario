@@ -597,25 +597,28 @@ View(tabla_españa)
 #Aqui comienza la limpieza de tablas relacionadas con la calidad del aire.
 library(tidyverse)
 andalucia_data_calidad<-
-  c_aire_andalucia %>% 
-  mutate(CC_AA="Andalucia") %>% 
-  select(.data=.,CC_AA, F_FECHA, `'PM10'`, `'PM25'`, `'NO2'`, `'O3'`,`'SO2'`) %>% 
-  rename(.data=.,FECHA=F_FECHA) %>% 
-  na.omit(andalucia_data)
+  c_aire_andalucia %>%
+  drop_na() %>% 
+  mutate(CCAA="Andalucia") %>% 
+  select(.data=.,CCAA, F_FECHA, `'PM10'`, `'PM25'`, `'NO2'`, `'O3'`,`'SO2'`) %>% 
+  rename(.data=.,FECHA=F_FECHA) 
+  
 
 
 cataluña_data_calidad<-
   calidad_aire_cataluña %>% 
-  mutate(CC_AA="Cataluña") %>% 
-  select(.data=.,CC_AA, ANY, MES, MAGNITUD, `NOM CONTAMINANT`, UNITATS) %>% 
+  drop_na() %>% 
+  mutate(CCAA="Cataluña") %>% 
+  select(.data=.,CCAA, ANY, MES, MAGNITUD, `NOM CONTAMINANT`, UNITATS) %>% 
   rename(.data=.,AÑO=ANY, NOMBRE_CONTAMINANTE=`NOM CONTAMINANT`, UNIDADES=UNITATS)
 
 
 valencia_data_calidad<-
   c_aire_valencia %>% 
-  mutate(CC_AA= "VAlencia") %>% 
-  select(.data=.,CC_AA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) %>% 
-  na.omit(valencia_data)
+  drop_na() %>% 
+  mutate(CCAA= "Valencia") %>% 
+  select(.data=.,CCAA, fecha, pm1, pm2_5, pm10, no, no2, nox, o3) 
+ 
 
 
 
