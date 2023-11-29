@@ -75,74 +75,7 @@ defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv",
   
   
 #HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
-#AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
-#HEAD
-#Datos diarios calidad aire valencia
-library(readr)
-rvvcca <- read_delim("DATOS/rvvcca.csv", 
-                     delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-
-
-library(readr)
-c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
-                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-
-#c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
-                             #delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
-
-
-#c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
-                             # delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-#c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
-calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
-
-
-c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-
-c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-#c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-
-calidad_de_aire_aragon <- read_csv("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv")
-
-
-#c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv",
-                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
-calidad_del_aire_castilla_y_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv", 
-                                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-library(readr)
-
-library(readxl)
-oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
-                                                         sheet = "AAP_2022_city_v9")
-library(dplyr)
-tabla_españa<-
-  oms_datos_mundiales %>% 
-  filter(`WHO Country Name` == "Spain")
-tabla_españa
-
- 
-#PRUEBA PIPELINE :
-#TRATAMIENTO DE DATOS DE DEFUNCIONES:
-#IDM stands for INDICE DE MORTALIDAD:
+#TRATAMIENTO DE LAS TABLAS Y GRÁFICAS:
 andalucia_data<-
   defunciones_andalucia %>% 
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
@@ -166,7 +99,7 @@ baleares_data<-
   defunciones_baleares %>%
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
-  
+
 #DATOS LIMPIADOS PARA CANARIAS
 canarias_data<-
   defunciones_canarias %>% 
@@ -280,12 +213,12 @@ asturias_rec<-
 #tabla canarias sin separador de miles:
 
 canarias_rec<-
-canarias_data %>% 
+  canarias_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
 #tabla cataluña sin separador de miles:
 cat_rec<-
-cat_data %>% 
+  cat_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
 #tabla la mancha sin separador de miles:
@@ -308,8 +241,8 @@ euskadi_rec<-
 extremadura_rec<-
   extremadura_data %>% 
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
-  
-  
+
+
 #tabla galicia sin separador de miles:
 gal_rec<-
   gal_data %>%
@@ -329,7 +262,7 @@ mrc_rec<-
 
 #FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
 
-#LA TABLA SIGUIENTE CONTIENE TODOS LOS DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021:
+#LA TABLA SIGUIENTE CONTIENE TODOS LOS DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021:(UNION DE LAS TABLAS):
 total_defunciones_CCAA<-
   rbind(andalucia_rec,aragon_rec,asturias_rec,baleares_data,canarias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) %>% 
   arrange(.data=.,desc(IDM))
@@ -393,7 +326,7 @@ mortalidad_17<-total_defunciones_CCAA %>%
   filter(.data=.,Year==2017) %>% 
   arrange(.data=.,desc(IDM)) %>% 
   mutate(.data=.,IDM_nacional=sum(IDM))
-  
+
 #2018:
 mortalidad_18<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2018) %>% 
@@ -425,172 +358,239 @@ library(dplyr)
 
 #GRÁFICOS POR AÑOS :
 
- graph_2007<-ggplot(data=mortalidad_07, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity",color="black", position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2007",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
+graph_2007<-ggplot(data=mortalidad_07, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity",color="black", position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2007",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
 
 graph_2008<- ggplot(data=mortalidad_08, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity",color="black", position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2008",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2009<-ggplot(data=mortalidad_09, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity",color="black", position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2009",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
+  geom_bar(stat = "identity",color="black", position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2008",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
 
- graph_2010<-ggplot(data=mortalidad_10, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity",color="black", position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2010",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
+graph_2009<-ggplot(data=mortalidad_09, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity",color="black", position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2009",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
 
- graph_2011<-
-   ggplot(data=mortalidad_11, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity",color="black", position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2011",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2012<-
-   ggplot(data=mortalidad_12, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2012",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2013<-
-   ggplot(data=mortalidad_13, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2013",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2014<-
-   ggplot(data=mortalidad_14, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2014",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2015<-
-   ggplot(data=mortalidad_15, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2015",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2016<-
-   ggplot(data=mortalidad_16, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2016",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- 
- graph_2017<-
-   ggplot(data=mortalidad_17, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2017",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic() 
- 
- 
- graph_2018<-
-   ggplot(data=mortalidad_18, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2018",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2019<-
-   ggplot(data=mortalidad_19, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2019",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- graph_2020<-
-   ggplot(data=mortalidad_20, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2020",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
- 
- 
- graph_2021<-
-   ggplot(data=mortalidad_21, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-   geom_bar(stat = "identity", color="black",position = "dodge") +
-   labs(title = "Comparación de Índice de Mortalidad por CCAA en 2021",
-        x = "Año",
-        y = "Índice de Mortalidad",
-        fill = "CCAA") +
-   theme_classic()
+graph_2010<-ggplot(data=mortalidad_10, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity",color="black", position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2010",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2011<-
+  ggplot(data=mortalidad_11, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity",color="black", position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2011",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2012<-
+  ggplot(data=mortalidad_12, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2012",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2013<-
+  ggplot(data=mortalidad_13, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2013",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2014<-
+  ggplot(data=mortalidad_14, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2014",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2015<-
+  ggplot(data=mortalidad_15, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2015",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2016<-
+  ggplot(data=mortalidad_16, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2016",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+
+graph_2017<-
+  ggplot(data=mortalidad_17, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2017",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic() 
+
+
+graph_2018<-
+  ggplot(data=mortalidad_18, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2018",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2019<-
+  ggplot(data=mortalidad_19, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2019",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+graph_2020<-
+  ggplot(data=mortalidad_20, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2020",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
+
+
+graph_2021<-
+  ggplot(data=mortalidad_21, aes(x = factor(Year), y = IDM, fill = CCAA)) +
+  geom_bar(stat = "identity", color="black",position = "dodge") +
+  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2021",
+       x = "Año",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_classic()
 #Modificar los nombres de las CCAA para que sean mas manejables a la hora de trabajar con los gráficos:
 #Se cambian los nombres de las CCAA de nuestra tabla con un case when ,se añade otra columna con el promedio de IDM por CCAA a ,lo largo de los años representados:
- 
- ccaa_nuevos_nombres <- c("Madrid, Comunidad de" = "C. Madrid",
-                           "Comunitat Valenciana" = "C.Valenciana",
-                           "Castilla y León" = "CyL",
-                           "Castilla - La Mancha" = "CLM",
-                           "País Vasco" = "Euskadi",
-                          "Asturias, Principado de"="Asturias",
-                          "Murcia, Región de"="Murcia",
-                          "Balears, Illes"="Baleares",
-                          "Navarra, Comunidad Foral de"="Navarra",
-                          "Rioja, La"="Rioja")
-#  library(tidyverse)
- 
- total_defunciones_CCAA <-total_defunciones_CCAA %>%
-   mutate(CCAA = case_when(
-     CCAA %in% names(ccaa_nuevos_nombres) ~ ccaa_nuevos_nombres[CCAA],
-     TRUE ~ CCAA
-   ))  %>%
-   group_by(CCAA) %>%
-   drop_na() %>% 
-   mutate(Promedio_IDM = mean(IDM))
-#GRÁFICO DE BARRAS:EVOLUCION DE IDM POR CCAA POR EL PERIODO DE TIEMPO DADO[2007,2021]: 
- 
- IDM_CCAA_graph<-
-   ggplot(data=total_defunciones_CCAA,aes(x=factor(Year),y=IDM,fill=CCAA,width=1.5))+
-  geom_bar(stat = "identity",color="black", position = position_dodge(width = 0.7)) +
-              labs(title = "Gráfico de Barras:Evolución de IDM por CCAA por el periodo de tiempo 2007 a 2021(ambos inclusivos)",
-                   x = "Años",
-                   y = "Índice de Mortalidad",
-                   fill = "CCAA") +
-              theme_minimal()
- 
 
-  
+ccaa_nuevos_nombres <- c("Madrid, Comunidad de" = "C. Madrid",
+                         "Comunitat Valenciana" = "C.Valenciana",
+                         "Castilla y León" = "CyL",
+                         "Castilla - La Mancha" = "CLM",
+                         "País Vasco" = "Euskadi",
+                         "Asturias, Principado de"="Asturias",
+                         "Murcia, Región de"="Murcia",
+                         "Balears, Illes"="Baleares",
+                         "Navarra, Comunidad Foral de"="Navarra",
+                         "Rioja, La"="Rioja")
+#  library(tidyverse)
+
+total_defunciones_CCAA <-total_defunciones_CCAA %>%
+  mutate(CCAA = case_when(
+    CCAA %in% names(ccaa_nuevos_nombres) ~ ccaa_nuevos_nombres[CCAA],
+    TRUE ~ CCAA
+  ))  %>%
+  group_by(CCAA) %>%
+  drop_na() %>% 
+  mutate(Promedio_IDM = mean(IDM))
+#GRÁFICO DE BARRAS:EVOLUCION DE IDM POR CCAA POR EL PERIODO DE TIEMPO DADO[2007,2021]: 
+
+IDM_CCAA_graph<-
+  ggplot(data=total_defunciones_CCAA,aes(x=factor(Year),y=IDM,fill=CCAA,width=1.5))+
+  geom_bar(stat = "identity",color="black", position = position_dodge(width = 0.7)) +
+  labs(title = "Gráfico de Barras:Evolución de IDM por CCAA por el periodo de tiempo 2007 a 2021(ambos inclusivos)",
+       x = "Años",
+       y = "Índice de Mortalidad",
+       fill = "CCAA") +
+  theme_minimal()
+
+
+#FIN TODO LO RELACIONADO CON DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS:
+
+
+#AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
+#HEAD
+#Datos diarios calidad aire valencia
+library(readr)
+rvvcca <- read_delim("DATOS/rvvcca.csv", 
+                     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+
+library(readr)
+c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
+                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+#c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
+                             #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
+
+
+#c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
+                             # delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
+                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
+
+
+c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
+                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+calidad_de_aire_aragon <- read_csv("DATOS CALIDAD DEL AIRE/calidad de aire aragon.csv")
+
+
+#c_aire_asturias <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire baleares.csv",
+                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv",
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+calidad_del_aire_castilla_y_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv", 
+                                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+library(readr)
+
+library(readxl)
+oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
+                                                         sheet = "AAP_2022_city_v9")
+library(dplyr)
+tabla_españa<-
+  oms_datos_mundiales %>% 
+  filter(`WHO Country Name` == "Spain")
+tabla_españa
+
+ 
