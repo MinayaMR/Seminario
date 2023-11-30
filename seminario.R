@@ -639,11 +639,79 @@ valencia_data_calidad_2021<-
   filter(substr(fecha, 1, 4) == "2021") %>% 
   summarise(.data=.,CCAA='Valencia',fecha='2021',across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
 
-#limpieza de la tabla excel 
+
+
+#limpieza de la tabla excel por ccaa.
 datos_calidad_aire_galicia<-
   tabla_españa %>% 
-  filter(`City or Locality` %in% c("A Coruna", "As Pontes De Garcia Rodriguez","Cee"))
+  filter(`City or Locality` %in% c("A Coruna", "As Pontes De Garcia Rodriguez","Cee","Arteixo","Cambre","Cervo"))
 
+datos_calidad_aire_andalucia<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alcala De Guadaira","Algar","Algeciras","Almeria","Almonte","Arcos De La Frontera","Bailen","Barriada Rio San Pedro","Bedar","Benahadux","Cadiz","Campillos","Campohermoso","Carboneras","Cordoba"))
+
+datos_calidad_aire_aragon<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alagon","Alcaniz","Alcorisa","Bujaraloz","Calanda","Caspe","Cerollera (La)"))
+
+datos_calidad_aire_baleares<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alcudia","Bunyola","Ciutadella De Menorca"))
+
+datos_calidad_aire_canarias<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Aguimes","Arafo","Arico","Arona","Arrecife","Arucas","Balcon De Telde","Brena Baja","Buzanada","Candelaria","Castillo Del Romeral"))
+
+datos_calidad_aire_cantabria<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Astillero","Barreda","Camargo","Castro Urdiales"))
+
+datos_calidad_aire_castillamancha<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Albacete","Azuqueca De Henares","Campisabalos"))
+
+datos_calidad_aire_cyl<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Aranda De Duero","Avila","Burgos","Buron","Cardenajimeno","Carracedelo","Congosto","Cuadros")) 
+  
+
+datos_calidad_aire_cataluña<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alcanar","Alcover","Ametlla De Mar (L')","Amposta","Badalona","Barbera Del Valles","Barcelona","Bellver De Cerdanya","Berga","Cadaques","Calafat","Clariana","Constanti","Cornella De Llobregat","Cubelles"))
+  
+
+datos_calidad_aire_madrid<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alcala De Henares","Alcobendas","Alcorcon","Algete","Aranjuez","Arganda Del Rey","Cerceda","Ciudad Real","Collado Villalba","Coslada"))
+
+datos_calidad_aire_navarra<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Arguedas"))
+
+datos_calidad_aire_valencia<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alacant","Albalat Dels Tarongers","Alcoi","Alcora (L')","Almassora","Alzira","Benicasim","	
+Benidorm","Bunol","Burjassot","Burriana","Castello","Castellon De La Plana","Caudete De Las Fuentes","Cirat","Coratxa"))
+
+datos_calidad_aire_extremadura<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Badajoz","Caceres"))
+
+datos_calidad_aire_paisvasco<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Abanto Y Ciervana/Abanto Zierb","Aia","Arrasate","Arrigorriaga","Azpeitia","Barakaldo","Basauri","Beasain","Bernedo", "Bilbao","Biscay","Bizkaia"))
+
+datos_calidad_aire_asturias<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Aviles","Cangas Del Narcea"))
+
+datos_calidad_aire_murcia<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alcantarilla","Caravaca De La Cruz","Cartagena"))
+
+datos_calidad_aire_rioja<-
+  tabla_españa %>% 
+  filter(`City or Locality` %in% c("Alfaro","Arrubal"))
 
  
 
