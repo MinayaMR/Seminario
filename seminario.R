@@ -721,7 +721,7 @@ datos_calidad_aire_paisvasco<-
 datos_calidad_aire_asturias<-
   tabla_españa %>% 
   filter(`City or Locality` %in% c("Aviles","Cangas Del Narcea","Gijon","Langreo","Llanes","Lugones","Mieres","Oviedo","San Martin Del Rey Aurelio","Siero")) %>% 
-  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
+  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`) 
 
 datos_calidad_aire_murcia<-
   tabla_españa %>% 
@@ -731,12 +731,24 @@ datos_calidad_aire_murcia<-
 datos_calidad_aire_rioja<-
   tabla_españa %>% 
   filter(`City or Locality` %in% c("Alfaro","Arrubal","El Rio","Galilea","Logrono","Pradejon")) %>% 
-  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
+  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`) 
+ 
+  
 
 
  
 print(tabla_españa)
   
+calidad_aire_andalucia_2010<-
+datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
+            
+    
   
  
