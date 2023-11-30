@@ -738,7 +738,9 @@ datos_calidad_aire_rioja<-
 
  
 print(tabla_españa)
-  
+#CALIDAD DE AIRE EN ANDALUCIA POR AÑOS:
+
+## EN 2010:
 calidad_aire_andalucia_2010<-
 datos_calidad_aire_andalucia %>% 
   group_by(`Measurement Year`) %>% 
@@ -746,6 +748,16 @@ datos_calidad_aire_andalucia %>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Andalucía') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+##EN 2011:SE DEBEN BUSCAR OTROS DATOS PARA ESTE AÑO PORQUE DEVUELVE UN TIBBLE VACÍO:
+calidad_aire_andalucia_2011<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
 
 
             
