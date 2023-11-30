@@ -663,7 +663,7 @@ datos_calidad_aire_aragon<-
 
 datos_calidad_aire_baleares<-
   tabla_españa %>% 
-  filter(`City or Locality` %in% c("Alcudia","Bunyola","Ciutadella De Menorca","Eivissa","Fortelasa De Isabel Ii","Mao","Palma De Mallorca","Pollenca","Sa Pobla","Sant Antoni De Portmany","Santa Eulalia Del Rio","Trepuco")) %>% 
+  filter(`City or Locality` %in% c("Alcudia","Bunyola","Ciutadella De Menorca","Eivissa","Fortelasa De Isabel Ii","Mao","Palma De Mallorca","Pollenca","Sa Pobla","Sant Antoni De Portmany","Santa Eulalia Del Rio","Trepuco")) %>%
   select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
 
 datos_calidad_aire_canarias<-
@@ -1313,6 +1313,187 @@ calidad_aire_canarias_2010<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Canarias') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2011: NO HAY DATOS
+calidad_aire_canarias_2011<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2013
+calidad_aire_canarias_2013<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2014
+calidad_aire_canarias_2014<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2015
+calidad_aire_canarias_2015<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2016
+calidad_aire_canarias_2016<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2017
+calidad_aire_canarias_2017<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2018
+calidad_aire_canarias_2018<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire canarias 2019
+calidad_aire_canarias_2019<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#CALIDAD DEL AIRE BALEARES POR AÑOS:
+
+#calidad aire baleares 2010
+calidad_aire_baleares_2010<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2011: NO HAY DATOS
+calidad_aire_baleares_2011<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad del aire baleares 2012
+calidad_aire_baleares_2012<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2013
+calidad_aire_baleares_2013<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2014
+calidad_aire_baleares_2014<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2015
+calidad_aire_baleares_2015<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2016
+calidad_aire_baleares_2016<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2017
+calidad_aire_baleares_2017<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2018
+calidad_aire_baleares_2018<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire baleares 2019
+calidad_aire_baleares_2019<-
+  datos_calidad_aire_baleares %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Baleares') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#DATOS CALIDAD AIRE CANTABRIA POR AÑOS
+
+#calidad aire cantabria 2010
+calidad_aire_cantabria_2010<-
+  datos_calidad_aire_cantabria%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Cantabria') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+
+
 
 
 
