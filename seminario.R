@@ -645,7 +645,8 @@ valencia_data_calidad_2021<-
 datos_calidad_aire_galicia<-
   tabla_españa %>%
   filter(`City or Locality` %in% c("A Coruna", "As Pontes De Garcia Rodriguez","Cee","Arteixo","Cambre","Cervo","Dumbria","Ferrol","Lousame","Lugo","Muras","Neda","Ordes","Oural","Ourense","Pastoriza","Pontevedra","Santiago De Compostela","Savinao (O)","Traslodeiro","Vigo","Vilalba","Xove")) %>% 
-  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
+  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`) %>% 
+  drop_na()
   
 
 
@@ -656,8 +657,9 @@ datos_calidad_aire_andalucia<-
 
 datos_calidad_aire_aragon<-
   tabla_españa %>% 
-  filter(`City or Locality` %in% c("Alagon","Alcaniz","Alcorisa","Bujaraloz","Calanda","Caspe","Cerollera (La)","El Pueyo De Araguas","Escatron","Foz Calanda","Huesca","La Cerollera","Monzon","Puig Moreno","San Jorge","Sarinena","Sastago","Teruel","Torrevelilla","Utrillas","Zaragoza")) %>% 
+  filter(`City or Locality` %in% c("Alagon","Alcaniz","Alcorisa","Bujaraloz","Calanda","Caspe","Cerollera (La)","El Pueyo De Araguas","Escatron","Foz Calanda","Huesca","La Cerollera","Monzon","Puig Moreno","San Jorge","Sarinena","Sastago","Teruel","Torrevelilla","Utrillas","Zaragoza")) %>%
   select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
+  
 
 datos_calidad_aire_baleares<-
   tabla_españa %>% 
@@ -730,7 +732,7 @@ datos_calidad_aire_murcia<-
 
 datos_calidad_aire_rioja<-
   tabla_españa %>% 
-  filter(`City or Locality` %in% c("Alfaro","Arrubal","El Rio","Galilea","Logrono","Pradejon")) %>% 
+  filter(`City or Locality` %in% c("Alfaro","Arrubal","El Rio","Galilea","Logrono","Pradejon")) %>%
   select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`) 
  
   
@@ -748,6 +750,7 @@ datos_calidad_aire_andalucia %>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Andalucía') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
 
 ##EN 2011:SE DEBEN BUSCAR OTROS DATOS PARA ESTE AÑO PORQUE DEVUELVE UN TIBBLE VACÍO:
 calidad_aire_andalucia_2011<-
@@ -833,4 +836,499 @@ calidad_aire_andalucia_2019<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
- 
+
+#CALIDAD AIRE GALICIA POR AÑOS:
+
+#calidad aire galicia 2010
+calidad_aire_galicia_2010<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2011: se deben buscar otros datos ya que no hay variables
+calidad_aire_galicia_2011<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2012: se deben buscar otros datos ya que hay variables
+calidad_aire_galicia_2012<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2013;
+calidad_aire_galicia_2013<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2014
+calidad_aire_galicia_2014<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2015
+calidad_aire_galicia_2015<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2016
+calidad_aire_galicia_2016<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2017
+calidad_aire_galicia_2017<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2018
+calidad_aire_galicia_2018<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire galicia 2019
+calidad_aire_galicia_2019<-
+  datos_calidad_aire_galicia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Galicia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#CALIDAD AIRE CASTILLA Y LEON POR AÑOS:
+
+#Calidad aire cyl 2010
+calidad_aire_cyl_2010<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2011
+calidad_aire_cyl_2011<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2012
+calidad_aire_cyl_2012<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2013
+calidad_aire_cyl_2013<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2014
+calidad_aire_cyl_2014<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire cyl 2015
+calidad_aire_cyl_2015<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2016
+calidad_aire_cyl_2016<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2017
+calidad_aire_cyl_2017<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire 2018
+calidad_aire_cyl_2018<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire cyl 2019
+calidad_aire_cyl_2019<-
+  datos_calidad_aire_cyl %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+
+#CALIDAD DEL AIRE ARAGON POR AÑOS 
+
+#Calidad aire aragon 2010
+calidad_aire_aragon_2010<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire aragon 2011
+calidad_aire_aragon_2011<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire aragon 2012
+calidad_aire_aragon_2012<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE ARAGON 2013
+calidad_aire_aragon_2013<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE ARAGON 2014
+calidad_aire_aragon_2014<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE ARAGON 2015
+calidad_aire_aragon_2015<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#cALIDAD AIRE ARAGON 2016
+calidad_aire_aragon_2016<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE ARAGON 2017
+calidad_aire_aragon_2017<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#cALIDAD AIRE ARAGON 2018
+calidad_aire_aragon_2018<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE ARAGON 2019
+calidad_aire_aragon_2019<-
+  datos_calidad_aire_aragon %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Aragon') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#CALIDAD DEL AIRE MURCIA PARA TODOS LO AÑOS:
+
+#calidad aire murcia 2010
+calidad_aire_murcia_2010<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2011: NO HAY DATOS
+calidad_aire_murcia_2011<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire murcia 2012: NO HAY DATOS 
+calidad_aire_murcia_2012<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2013
+calidad_aire_murcia_2013<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2014
+calidad_aire_murcia_2014<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2015
+calidad_aire_murcia_2015<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2016
+calidad_aire_murcia_2016<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2017
+calidad_aire_murcia_2017<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2018
+calidad_aire_murcia_2018<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire murcia 2019
+calidad_aire_murcia_2019<-
+  datos_calidad_aire_murcia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Murcia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#CALIDAD DEL AIRE NAVARRA PARA TODOS LOS AÑOS:
+
+#calidad aire navarra 2010
+calidad_aire_navarra_2010<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2011: NO HAY DATOS 
+calidad_aire_navarra_2011<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2012: NO HAY DATOS 
+calidad_aire_navarra_2012<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2013
+calidad_aire_navarra_2013<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2014
+calidad_aire_navarra_2014<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2015
+calidad_aire_navarra_2015<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2016
+calidad_aire_navarra_2016<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2017
+calidad_aire_navarra_2017<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2018
+calidad_aire_navarra_2018<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#calidad aire navarra 2019
+calidad_aire_navarra_2019<-
+  datos_calidad_aire_navarra %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Navarra') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#CALIDAD DEL AIRE CANARIAS TODOS LOS AÑOS
+
+#calidad aire canarias 2010
+calidad_aire_canarias_2010<-
+  datos_calidad_aire_canarias %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Canarias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
