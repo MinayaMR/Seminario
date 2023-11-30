@@ -759,8 +759,78 @@ calidad_aire_andalucia_2011<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
-
+#Calidad aire andalucia 2012
+calidad_aire_andalucia_2012<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
             
-    
-  
+#Calidad aire andalucia 2013
+calidad_aire_andalucia_2013<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#Calidad aire andalucia 2014
+calidad_aire_andalucia_2014<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire andalucia 2015
+calidad_aire_andalucia_2015<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire andalucia 2016
+calidad_aire_andalucia_2016<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire andalucia 2017
+calidad_aire_andalucia_2017<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire andalucia 2018
+calidad_aire_andalucia_2018<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#Calidad aire andalucia 2019
+calidad_aire_andalucia_2019<-
+  datos_calidad_aire_andalucia %>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Andalucía') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
  
