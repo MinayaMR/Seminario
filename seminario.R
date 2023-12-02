@@ -1004,7 +1004,7 @@ calidad_aire_cyl_2017<-
   mutate(.data=.,CCAA='Castilla y Leon') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
-#calidad aire 2018
+#calidad aire cyl 2018
 calidad_aire_cyl_2018<-
   datos_calidad_aire_cyl %>% 
   group_by(`Measurement Year`) %>% 
@@ -1223,7 +1223,7 @@ calidad_aire_navarra_2010<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 #calidad aire navarra 2011: NO HAY DATOS 
-calidad_aire_navarra_2011<-
+#calidad_aire_navarra_2011<-
   datos_calidad_aire_navarra %>% 
   group_by(`Measurement Year`) %>% 
   filter(.data=.,`Measurement Year`==2011) %>% 
@@ -1231,6 +1231,8 @@ calidad_aire_navarra_2011<-
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#IMPORTACION NIEVOS DATOS NAVARRA 2011:
+calidad_aire_navarra_2011<-read.delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv")
 #calidad aire navarra 2012: NO HAY DATOS 
 calidad_aire_navarra_2012<-
   datos_calidad_aire_navarra %>% 
@@ -1952,6 +1954,26 @@ calidad_aire_valencia_2019<-
   mutate(.data=.,CCAA='Valencia') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#CALIDAD AIRE VALENCIA 2020:SE DEBEN BUSCAR OTROS DATOS:
+calidad_aire_valencia_2020<-
+  datos_calidad_aire_valencia%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2020) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Valencia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE VALENCIA 2021:SE DEBEN BUSCAR OTROS DATOS 
+calidad_aire_valencia_2021<-
+  datos_calidad_aire_valencia%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2021) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Valencia') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+
 
 #CALIDAD DEL AIRE EXTREMADURA POR AÑOS
 
@@ -2039,6 +2061,32 @@ calidad_aire_extremadura_2018<-
   mutate(.data=.,CCAA='Extremadura') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#CALIDAD AIRE EXTREMADURA 2019:
+calidad_aire_extremadura_2019<-
+  datos_calidad_aire_extremadura%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Extremadura') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE EXTREMADURA 2020:SE DEBEN BUSCRA OTROS DATOS:
+calidad_aire_extremadura_2020<-
+  datos_calidad_aire_extremadura%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2020)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Extremadura') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD AIRE EXTREMADURA 2021:SE DEBEN BUSCAR OTROS DATOS:
+calidad_aire_extremadura_2021<-
+  datos_calidad_aire_extremadura%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2021)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Extremadura') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 #CALIDAD DEL AIRE DE LA RIOJA POR AÑOS:
 
