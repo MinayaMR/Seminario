@@ -1210,6 +1210,7 @@ calidad_aire_murcia_2019<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
+
 #CALIDAD DEL AIRE NAVARRA PARA TODOS LOS AÑOS:
 
 #calidad aire navarra 2010
@@ -1292,6 +1293,7 @@ calidad_aire_navarra_2018<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
 
 #calidad aire navarra 2019
 calidad_aire_navarra_2019<-
@@ -1433,6 +1435,7 @@ calidad_aire_baleares_2014<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Baleares') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
 
 #calidad aire baleares 2015
 calidad_aire_baleares_2015<-
@@ -1640,6 +1643,7 @@ calidad_aire_cataluña_2016<-
   mutate(.data=.,CCAA='Cataluña') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
 #calidad aire cataluña 2017
 calidad_aire_cataluña_2017<-
   datos_calidad_aire_cataluña%>% 
@@ -1781,6 +1785,7 @@ calidad_aire_mancha_2011<-
   mutate(.data=.,CCAA='Castilla la Mancha') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
 #calidad aire mancha 2012
 calidad_aire_mancha_2012<-
   datos_calidad_aire_castillamancha%>% 
@@ -1919,6 +1924,7 @@ calidad_aire_valencia_2016<-
   mutate(.data=.,CCAA='Valencia') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
 #calidad del aire valencia 2017
 calidad_aire_valencia_2017<-
   datos_calidad_aire_valencia%>% 
@@ -1985,6 +1991,9 @@ calidad_aire_extremadura_2013<-
   mutate(.data=.,CCAA='Extremadura') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
+
+
 #calidad del aire extremadura 2014
 calidad_aire_extremadura_2014<-
   datos_calidad_aire_extremadura%>% 
@@ -2031,9 +2040,116 @@ calidad_aire_extremadura_2018<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
+#CALIDAD DEL AIRE DE LA RIOJA POR AÑOS:
 
 
+#CALIDAD DEL AIRE RIOJA 2010:
+calidad_aire_rioja_2010<-
+  datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#CALIDAD DEL AIRE RIOJA 2011:SE DEBEN BUSCAR OTROS DATOS /TIBBLE VACÍO:
+calidad_aire_rioja_2011<-
+  datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2012:SE DEBEN BUSCAR OTROS DATOS /TIBBLE VACÍO:
+calidad_aire_rioja_2012<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2013:
+calidad_aire_rioja_2013<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2014 :
+calidad_aire_rioja_2014<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2015:
+calidad_aire_rioja_2015<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2016:
+calidad_aire_rioja_2016<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2017:
+calidad_aire_rioja_2017<-
+  datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2018:
+calidad_aire_rioja_2018<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2019:
+calidad_aire_rioja_2019<-
+datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2020:SE DEBE BUSCAR OTROS DATOS :
+calidad_aire_rioja_2020<-
+  datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2020)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE RIOJA 2021:SE DEBEN BUSCAR OTROS DATOS:
+calidad_aire_rioja_2021<-
+  datos_calidad_aire_rioja %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2021)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='La Rioja') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
 
