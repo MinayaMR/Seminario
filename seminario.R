@@ -350,6 +350,65 @@ mortalidad_21<-total_defunciones_CCAA %>%
   mutate(.data=.,IDM_nacional=sum(IDM))
 
 
+#CCAA POR AÑOS:
+#DEFUNCIONES ANDALUCIA:
+#2007:
+andalucia_def_2007<-
+  andalucia_rec %>% filter(.data=.,Year==2007)
+
+#2008:
+andalucia_def_2008<-
+  andalucia_rec %>% filter(.data=.,Year==2008)
+
+#2009:
+andalucia_def_2009<-
+  andalucia_rec %>% filter(.data=.,Year==2009)
+
+#2010:
+andalucia_def_2010<-
+  andalucia_rec %>% filter(.data=.,Year==2010)
+
+#2011:
+andalucia_def_2011<-
+  andalucia_rec %>% filter(.data=.,Year==2011)
+#2012:
+andalucia_def_2012<-
+  andalucia_rec %>% filter(.data=.,Year==2012)
+#2013
+andalucia_def_2013<-
+  andalucia_rec %>% filter(.data=.,Year==2013)
+
+#2014:
+andalucia_def_2014<-
+  andalucia_rec %>% filter(.data=.,Year==2014)
+
+#2015
+andalucia_def_2015<-
+  andalucia_rec %>% filter(.data=.,Year==2015)
+
+#2016:
+andalucia_def_2016<-
+  andalucia_rec %>% filter(.data=.,Year==2016)
+
+#2017:
+andalucia_def_2017<-
+  andalucia_rec %>% filter(.data=.,Year==2017)
+
+#2018:
+andalucia_def_2018<-
+  andalucia_rec %>% filter(.data=.,Year==2018)
+
+#2019:
+andalucia_def_2019<-
+  andalucia_rec %>% filter(.data=.,Year==2019)
+
+#2020:
+andalucia_def_2020<-
+  andalucia_rec %>% filter(.data=.,Year==2020)
+
+#2021:
+andalucia_def_2021<-
+  andalucia_rec %>% filter(.data=.,Year==2021)
 
 library(ggplot2)
 
