@@ -6,6 +6,7 @@ library(tidyverse)
 library(jsonlite)
 library(readr)
 library(dplyr)
+library(readODS)
 
 #CARGA DE DATOS DE DEFUNCIONES DE LAS CCAA QUE EMPIEZAN POR [A,B,C]:
 
@@ -820,7 +821,18 @@ calidad_aire_andalucia_2011<-
   mutate(.data=.,CCAA='Andalucía') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+##NUEVA TABLA ANDALUCIA CALIDAD 2011:
 
+calidad_aire_andalucia_2011<- 
+  read_ods("DATOS CALIDAD DEL AIRE/andalucia_2003_2019.ods", sheet = "Andalucia_Parametro", skip = 1) %>% 
+  rename(CCAA = "Desag.Territorial", Cantidad_Toneladas= "X2011") %>%
+  select(.data=.,CCAA,contaminante,Cantidad_Toneladas) %>% 
+  filter(.data=.,contaminante=="PM2,5 (t)" |contaminante=="PM10 (t)"| contaminante=="NOx (t)")
+  
+
+unique(oops$contaminante)
+library(tidyverse)
+library(dplyr)
 #Calidad aire andalucia 2012
 calidad_aire_andalucia_2012<-
   datos_calidad_aire_andalucia %>% 
