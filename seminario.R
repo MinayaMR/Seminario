@@ -1414,6 +1414,7 @@ calidad_aire_canarias_2011<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
+
 #CALIDAD AIRE CANARIAS 2011:TABLA CON DATOS:
 canarias_2011_calidad_aire <- function(filename, tibble = FALSE) {
   sheets <- readxl::excel_sheets(filename)
@@ -1428,6 +1429,7 @@ canarias_2011_aire<-canarias_2011_calidad_aire("DATOS CALIDAD DEL AIRE/canarias_
 cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011.csv", 
                              delim = ";", escape_double = FALSE, col_names = FALSE, 
                              trim_ws = TRUE)
+
 
 
 #calidad aire canarias 2013
@@ -1607,6 +1609,9 @@ calidad_aire_cantabria_2011<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Cantabria') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011.csv", 
+                             delim = ";", escape_double = FALSE, col_names = FALSE, 
+                             trim_ws = TRUE)
 
 #calidad aire cantabria 2012: no hay datos
 calidad_aire_cantabria_2012<-
@@ -1616,6 +1621,10 @@ calidad_aire_cantabria_2012<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Cantabria') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+cantabria_2012 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2012.csv", 
+                             delim = ";", escape_double = FALSE, col_names = FALSE, 
+                             trim_ws = TRUE)
 
 
 #calidad aire cantabria 2013
