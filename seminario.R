@@ -1411,6 +1411,17 @@ calidad_aire_canarias_2011<-
   mutate(.data=.,CCAA='Canarias') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#CALIDAD AIRE CANARIAS 2011:TABLA CON DATOS:
+canarias_2011_calidad_aire <- function(filename, tibble = FALSE) {
+  sheets <- readxl::excel_sheets(filename)
+  x <- lapply(sheets, function(X) readxl::read_excel(filename, sheet = X))
+  if(!tibble) x <- lapply(x, as.data.frame)
+  names(x) <- sheets
+  x
+}
+
+canarias_2011_aire<-canarias_2011_calidad_aire("DATOS CALIDAD DEL AIRE/canarias_2011.xls")
+
 #calidad aire canarias 2013
 calidad_aire_canarias_2013<-
   datos_calidad_aire_canarias %>% 
