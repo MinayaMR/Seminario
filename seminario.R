@@ -1306,9 +1306,9 @@ library(readr)
                              delim = ";", escape_double = FALSE, col_names = FALSE, 
                              trim_ws = TRUE,skip=1) %>%
     drop_na() %>% 
-    rename(.data=.,"SO2 (µg/m³)"=X1,"NO(µg/m³)"=X2,"NO2(µg/m³)"=X3,"CO (µg/m³)"=X4,"O3 (µg/m³)"=X5,"PM10 (µg/m³)"=X6,"NOx (µg/m³)"=X7) %>% 
+    rename(.data=.,"SO2 (µg/m³)"=X1,"NO(µg/m³)"=X2,"NO2(µg/m³)"=X3,"CO (mg/m³)"=X4,"O3 (µg/m³)"=X5,"PM10 (µg/m³)"=X6,"NOx (µg/m³)"=X7) %>% 
     select(.data=.,`SO2 (µg/m³)`:`NOx (µg/m³)`) %>% 
-    summarise(.data=.,`SO2 (µg/m³)`=mean(`SO2 (µg/m³)`,na.rm=TRUE),`NO(µg/m³)`=mean(`NO(µg/m³)`,na.rm=TRUE),`NO2(µg/m³)`=mean(`NO2(µg/m³)`,na.rm=TRUE),`CO (µg/m³)`=mean(`CO (µg/m³)`,na.rm=TRUE),`O3 (µg/m³)`=mean(`O3 (µg/m³)`,na.rm=TRUE),`PM10 (µg/m³)`=mean(`PM10 (µg/m³)`,na.rm=TRUE),`NOx (µg/m³)`=mean(`NOx (µg/m³)`,na.rm=TRUE))
+    summarise(.data=.,`SO2 (µg/m³)`=mean(`SO2 (µg/m³)`,na.rm=TRUE),`NO(µg/m³)`=mean(`NO(µg/m³)`,na.rm=TRUE),`NO2(µg/m³)`=mean(`NO2(µg/m³)`,na.rm=TRUE),`CO (mg/m³)`=mean(`CO (mg/m³)`,na.rm=TRUE),`O3 (µg/m³)`=mean(`O3 (µg/m³)`,na.rm=TRUE),`PM10 (µg/m³)`=mean(`PM10 (µg/m³)`,na.rm=TRUE),`NOx (µg/m³)`=mean(`NOx (µg/m³)`,na.rm=TRUE))
   
     
 #IMPORTACION NIEVOS DATOS NAVARRA 2011:
