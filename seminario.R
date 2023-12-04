@@ -1322,6 +1322,10 @@ calidad_aire_navarra_2012<-
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+navarra_2012 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2012.csv", 
+                           delim = ";", escape_double = FALSE, col_names = FALSE, 
+                           trim_ws = TRUE, skip=1)
+
 #calidad aire navarra 2013
 calidad_aire_navarra_2013<-
   datos_calidad_aire_navarra %>% 
