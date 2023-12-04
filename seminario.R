@@ -1324,7 +1324,9 @@ calidad_aire_navarra_2012<-
 
 navarra_2012 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2012.csv", 
                            delim = ";", escape_double = FALSE, col_names = FALSE, 
-                           trim_ws = TRUE, skip=1)
+                           trim_ws = TRUE, skip=1) %>% 
+  
+
 
 #calidad aire navarra 2013
 calidad_aire_navarra_2013<-
@@ -1411,6 +1413,7 @@ calidad_aire_canarias_2011<-
   mutate(.data=.,CCAA='Canarias') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
 #CALIDAD AIRE CANARIAS 2011:TABLA CON DATOS:
 canarias_2011_calidad_aire <- function(filename, tibble = FALSE) {
   sheets <- readxl::excel_sheets(filename)
@@ -1421,6 +1424,11 @@ canarias_2011_calidad_aire <- function(filename, tibble = FALSE) {
 }
 
 canarias_2011_aire<-canarias_2011_calidad_aire("DATOS CALIDAD DEL AIRE/canarias_2011.xls")
+
+cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011.csv", 
+                             delim = ";", escape_double = FALSE, col_names = FALSE, 
+                             trim_ws = TRUE)
+
 
 #calidad aire canarias 2013
 calidad_aire_canarias_2013<-
