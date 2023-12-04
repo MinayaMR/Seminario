@@ -1301,11 +1301,17 @@ calidad_aire_navarra_2010<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
-library(readr)
-  navarra_2011 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv", 
+#NAVARRA 2011 CALIDAD NUEVA TABLA CON DATOS:
+  
+navarra_2011 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv", 
                              delim = ";", escape_double = FALSE, col_names = FALSE, 
                              trim_ws = TRUE,skip=1) %>% 
-    rename(.data=.,"Fecha"=X1,"SO2 (µg/m³)"=X2,"NO(µg/m³)"=X3,"NO2(µg/m³)"=X4,"CO (µg/m³)"=X5,"O3 (µg/m³)"=X6,"PM10 (µg/m³)"=X7,"NOx (µg/m³)"=X8)
+  drop_na() %>% 
+    rename(.data=.,"Fecha"=X1,"SO2 (µg/m³)"=X2,"NO(µg/m³)"=X3,"NO2(µg/m³)"=X4,"CO (µg/m³)"=X5,"O3 (µg/m³)"=X6,"PM10 (µg/m³)"=X7,"NOx (µg/m³)"=X8) %>% 
+  select(.data=.,`SO2 (µg/m³)`:`NOx (µg/m³)`) %>% 
+  summarise(.data=.,`SO2 (µg/m³)`=mean(`SO2 (µg/m³)`,na.rm=TRUE),`NO(µg/m³)`=mean(`NO(µg/m³)`,na.rm=TRUE),`NO2(µg/m³)`=mean(`NO2(µg/m³)`,na.rm=TRUE),`CO (µg/m³)`=mean(`CO (µg/m³)`,na.rm=TRUE),`O3 (µg/m³)`=mean(`O3 (µg/m³)`,na.rm=TRUE),`PM10 (µg/m³)`=mean(`PM10 (µg/m³)`,na.rm=TRUE),`NOx (µg/m³)`=mean(`NOx (µg/m³)`,na.rm=TRUE))
+  
+  
 #IMPORTACION NIEVOS DATOS NAVARRA 2011:
 calidad_aire_navarra_2011<-read.delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv")
 #calidad aire navarra 2012: NO HAY DATOS 
