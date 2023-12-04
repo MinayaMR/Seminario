@@ -1301,7 +1301,11 @@ calidad_aire_navarra_2010<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
-
+library(readr)
+  navarra_2011 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv", 
+                             delim = ";", escape_double = FALSE, col_names = FALSE, 
+                             trim_ws = TRUE,skip=1) %>% 
+    rename(.data=.,"Fecha"=X1,"SO2 (µg/m³)"=X2,"NO(µg/m³)"=X3,"NO2(µg/m³)"=X4,"CO (µg/m³)"=X5,"O3 (µg/m³)"=X6,"PM10 (µg/m³)"=X7,"NOx (µg/m³)"=X8)
 #IMPORTACION NIEVOS DATOS NAVARRA 2011:
 calidad_aire_navarra_2011<-read.delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv")
 #calidad aire navarra 2012: NO HAY DATOS 
