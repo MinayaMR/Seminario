@@ -2379,8 +2379,7 @@ calidad_aire_rioja_2011<-rbind(ESarrubal_2011, ESalfaro_2011, ESgalilea_2011, ES
 
 
 
-
-
+#CALIDAD AIRE RIOJA 2012 POR PROVINCIAS:
 
 ESalfaro_2012 <- read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESalfaro_2003_2012.xls", 
                                  sheet = "2012") %>% 
@@ -2389,6 +2388,54 @@ ESalfaro_2012 <- read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 200
   select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
   summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
+
+ESpradejon_2012 <- read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESpradejon_2005_2012.xls", 
+                              sheet = "2012") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
+
+ESgalilea_2012 <- read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESgalilea_2005_2012.xls", 
+                             sheet = "2012") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
+
+ESciguena_2012<-read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESciguena_2003_2012.xls",sheet = "2012") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI,NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI,  NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) %>% 
+  mutate(.data=.,PM25=NA)
+
+ESarrubal_2012<-read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESarrubal_2005_2012.xls",sheet = "2012") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
+
+
+
+#NUEVA TABLA CALIDAD RIOJA 2011:TABLA FINAL:
+
+calidad_aire_rioja_2012<-rbind(ESarrubal_2012, ESalfaro_2012, ESgalilea_2012, ESpradejon_2012, ESciguena_2012)  %>%
+  reframe(.data=.,NO2=mean(NO2,na.rm = TRUE),PM10=mean(PM10,na.rm = TRUE),PM25=mean(PM25,na.rm=TRUE),NO=mean(NO,na.rm=TRUE)) %>% 
   mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
   relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
 
