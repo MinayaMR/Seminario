@@ -2314,6 +2314,7 @@ calidad_aire_rioja_2021<-
 
 
 
+#se cargan aqui datos para la calidad del aire en la rioja por provincias en 2011,2012,2020,2021:
 
 
 
