@@ -2432,17 +2432,75 @@ ESarrubal_2012<-read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003
 
 
 
-#NUEVA TABLA CALIDAD RIOJA 2011:TABLA FINAL:
+#NUEVA TABLA CALIDAD RIOJA 2012:TABLA FINAL:
 
 calidad_aire_rioja_2012<-rbind(ESarrubal_2012, ESalfaro_2012, ESgalilea_2012, ESpradejon_2012, ESciguena_2012)  %>%
   reframe(.data=.,NO2=mean(NO2,na.rm = TRUE),PM10=mean(PM10,na.rm = TRUE),PM25=mean(PM25,na.rm=TRUE),NO=mean(NO,na.rm=TRUE)) %>% 
   mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
   relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
 
+#calidad de aire la rioja 2020:
+
+Alfaro_horarios_diarios_2020 <- read_excel("DATOS CALIDAD DEL AIRE/ES17_Estaciones 2020_rioja/Alfaro_horarios_diarios_ES1649A_2020_V3.xls", 
+                                                      sheet = "diarios") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) 
+
+
+arrubal_2020<-read_excel("DATOS CALIDAD DEL AIRE/ES17_Estaciones 2020_rioja/Arrubal__horarios_diasrios_V3.xls",sheet = "diarios") %>%
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) 
+
+galilea_2020<-read_excel("DATOS CALIDAD DEL AIRE/ES17_Estaciones 2020_rioja/Galilea_ES1746A_2020_horarios_diarios.xls",sheet="diarios") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) 
+
+ciguena_2020<-read_excel("DATOS CALIDAD DEL AIRE/ES17_Estaciones 2020_rioja/La Cigueña_horarios_diarios_2020.xlsx",sheet = "Diario") %>%
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI,NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI,  NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) %>% 
+  mutate(.data=.,PM25=NA)
+
+pradejon_2020<-read_excel("DATOS CALIDAD DEL AIRE/ES17_Estaciones 2020_rioja/Pradejon_ES1753A_2020_horarios_diarios.xls",sheet="diarios") %>% 
+  drop_na() %>%
+  filter(NO2_HI >= 0, PM10_HI >= 0, PM25_HI >= 0, NO_HI >= 0) %>%
+  select(NO2_HI, PM10_HI, PM25_HI, NO_HI) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  rename(.data=., NO2 = NO2_HI, PM10 = PM10_HI, PM25 = PM25_HI, NO = NO_HI) %>% 
+  mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+  relocate(.data=.,CCAA, `Measurement Year`,.before = 1) 
+
+
+#TABLA FINAL 2020 LA RIOJA CALIDAD DEL AIRE:
+rioja_2020<-
+  rbind(pradejon_2020,ciguena_2020,galilea_2020,arrubal_2020,Alfaro_horarios_diarios_2020)  %>%
+reframe(.data=.,NO2=mean(NO2,na.rm = TRUE),PM10=mean(PM10,na.rm = TRUE),PM25=mean(PM25,na.rm=TRUE),NO=mean(NO,na.rm=TRUE)) %>% 
+                    mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2020) %>% 
+                    relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
 
   
 
 
+  
 
 
 
