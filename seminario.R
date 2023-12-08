@@ -2479,7 +2479,7 @@ ccaa_2017_calidad<-
   arrange(across(where(is.numeric),desc))
 
 #2018
-ccaa_calidad_2018<-
+ccaa_2018_calidad<-
   rbind(calidad_aire_andalucia_2018, calidad_aire_galicia_2018, calidad_aire_cyl_2018, calidad_aire_aragon_2018, calidad_aire_murcia_2018, calidad_aire_navarra_2018, calidad_aire_cantabria_2018, calidad_aire_cataluña_2018, calidad_aire_madrid_2018, calidad_aire_mancha_2018, calidad_aire_valencia_2018, calidad_aire_extremadura_2018, calidad_aire_rioja_2018) %>% 
   select(CCAA:`NO2 (μg/m3)`) %>% 
   arrange(across(where(is.numeric),desc))
@@ -2494,6 +2494,9 @@ ccaa_2019_calidad<-
   
 
 #datos calidad del aire por año y gases
+
+#2010
+
 #2010 para no2
 ccaa_2010_no2<-ccaa_2010_calidad %>% 
   relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
@@ -2512,7 +2515,144 @@ ccaa_2010_pm10<-ccaa_2010_calidad %>%
   arrange(.data=., desc(`PM10 (μg/m3)`))
 
 
+#2013
 
+#2013 para no2
+ccaa_2013_no2<-ccaa_2013_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2013 para pm2.5
+ccaa_2013_pm2.5<-ccaa_2013_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2013 para pm10
+ccaa_2013_pm10<-ccaa_2013_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+  
+
+#2014
+
+#2014 para no2
+ccaa_2014_no2<-ccaa_2014_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2014 para pm2.5
+ccaa_2014_pm2.5<-ccaa_2014_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2014 para pm10
+ccaa_2014_pm10<-ccaa_2014_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
+#2015
+
+#2015 para no2
+ccaa_2015_no2<-ccaa_2015_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2015 para pm2.5
+ccaa_2015_pm2.5<-ccaa_2015_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2015 para pm10
+ccaa_2015_pm10<-ccaa_2015_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+  
+
+#2016
+
+#2016 para no2
+ccaa_2016_no2<-ccaa_2016_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2016 para pm2.5
+ccaa_2016_pm2.5<-ccaa_2016_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2016 para pm10
+ccaa_2016_pm10<-ccaa_2016_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
+#2017
+
+#2017 para no2
+ccaa_2017_no2<-ccaa_2017_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2017 para pm2.5
+ccaa_2017_pm2.5<-ccaa_2017_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2017 para pm10
+ccaa_2017_pm10<-ccaa_2017_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
+#2018
+
+#2018 para no2
+ccaa_2018_no2<-ccaa_2018_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2018 para pm2.5
+ccaa_2018_pm2.5<-ccaa_2018_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2018 para pm10
+ccaa_2018_pm10<-ccaa_2018_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
+#2019
+
+#2019 para no2
+ccaa_2019_no2<-ccaa_2019_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2019 para pm2.5
+ccaa_2019_pm2.5<-ccaa_2019_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2019 para pm10
+ccaa_2019_pm10<-ccaa_2019_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
 
 
 
