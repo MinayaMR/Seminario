@@ -2445,11 +2445,18 @@ calidad_aire_rioja_2012<-rbind(ESarrubal_2012, ESalfaro_2012, ESgalilea_2012, ES
 #2010
 ccaa_2010_calidad<-
   rbind(calidad_aire_andalucia_2010, calidad_aire_galicia_2010, calidad_aire_cyl_2010, calidad_aire_aragon_2010, calidad_aire_murcia_2010, calidad_aire_navarra_2010, calidad_aire_cantabria_2010, calidad_aire_cataluña_2010, calidad_aire_madrid_2010, calidad_aire_mancha_2010, calidad_aire_valencia_2010, calidad_aire_extremadura_2010, calidad_aire_rioja_2010) %>% 
-  select(CCAA:`NO2 (μg/m3)`)
+  select(CCAA:`NO2 (μg/m3)`) 
+
+
+calidad_nacional_2010<-
+  ccaa_2010_calidad%>%
+  filter_all(~ !is.nan(.)) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>%
+  mutate(.data=.,CCAA="Nacional",`Measurement Year`= 2010) %>% relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
 
 
 #2011
-
+rbind(calidad_aire_andalucia_2011,calidad_aire_galicia_2011,calidad_aire_aragon_2011,calidad_aire_2011)
 
 #2012
 
