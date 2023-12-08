@@ -775,7 +775,7 @@ datos_calidad_aire_extremadura<-
   filter(`City or Locality` %in% c("Badajoz","Caceres","Merida","Oliva De Plasencia","Puebla De Sancho Perez","Toril","Zafra")) %>% 
   select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
 
-datos_calidad_aire_paisvasco<-
+datos_calidad_aire_euskadi<-
   tabla_españa %>% 
   filter(`City or Locality` %in% c("Abanto Y Ciervana/Abanto Zierb","Aia","Arrasate","Arrigorriaga","Azpeitia","Barakaldo","Basauri","Beasain","Bernedo", "Bilbao","Biscay","Bizkaia","Donostia","Durango","Eltziego","Erandio","Errenteria","Gallarta","Hernani","Lalastra","Lantaron","Laudio","Lemoa","Mimetiz","Mundaka","Muskiz","Portugalete","Sondika","Tolosa","Vitoria-Gasteiz","Zalla")) %>% 
   select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
@@ -1311,7 +1311,7 @@ library(readr)
     summarise(.data=.,`SO2 (µg/m³)`=mean(`SO2 (µg/m³)`,na.rm=TRUE),`NO(µg/m³)`=mean(`NO(µg/m³)`,na.rm=TRUE),`NO2(µg/m³)`=mean(`NO2(µg/m³)`,na.rm=TRUE),`CO (mg/m³)`=mean(`CO (mg/m³)`,na.rm=TRUE),`O3 (µg/m³)`=mean(`O3 (µg/m³)`,na.rm=TRUE),`PM10 (µg/m³)`=mean(`PM10 (µg/m³)`,na.rm=TRUE),`NOx (µg/m³)`=mean(`NOx (µg/m³)`,na.rm=TRUE))
   
     
-#IMPORTACION NIEVOS DATOS NAVARRA 2011:
+#IMPORTACION NUEVOS DATOS NAVARRA 2011:
 calidad_aire_navarra_2011<-read.delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv")
 #calidad aire navarra 2012: NO HAY DATOS 
 calidad_aire_navarra_2012<-
@@ -1393,38 +1393,8 @@ calidad_aire_navarra_2019<-
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
-#CALIDAD DEL AIRE CANARIAS TODOS LOS AÑOS
-
-#calidad aire canarias 2010
-calidad_aire_canarias_2010<-
-  datos_calidad_aire_canarias %>% 
-  group_by(`Measurement Year`) %>% 
-  filter(.data=.,`Measurement Year`==2010) %>% 
-  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
-  mutate(.data=.,CCAA='Canarias') %>% 
-  relocate(.data=.,CCAA,.before = `Measurement Year`)
-
-#calidad aire canarias 2011: NO HAY DATOS
-calidad_aire_canarias_2011<-
-  datos_calidad_aire_canarias %>% 
-  group_by(`Measurement Year`) %>% 
-  filter(.data=.,`Measurement Year`==2011) %>% 
-  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
-  mutate(.data=.,CCAA='Canarias') %>% 
-  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
-
-#CALIDAD AIRE CANARIAS 2011:TABLA CON DATOS:
-canarias_2011_calidad_aire <- function(filename, tibble = FALSE) {
-  sheets <- readxl::excel_sheets(filename)
-  x <- lapply(sheets, function(X) readxl::read_excel(filename, sheet = X))
-  if(!tibble) x <- lapply(x, as.data.frame)
-  names(x) <- sheets
-  x
-}
-
-canarias_2011_aire<-canarias_2011_calidad_aire("DATOS CALIDAD DEL AIRE/canarias_2011.xls")
 
 cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011.csv", 
                              delim = ";", escape_double = FALSE, col_names = FALSE, 
@@ -2311,11 +2281,111 @@ calidad_aire_rioja_2021<-
   mutate(.data=.,CCAA='La Rioja') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+#TABLAS DE CALIDAD DEL AIRE EN EUSKADI POR AÑOS:
+
+#CALIDAD DEL AIRE EUSKADI 2010:
+calidad_aire_euskadi_2010<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2011:NO SE ENCUENTRAN DATOS PARA ESTE AÑO:
+calidad_aire_euskadi_2011<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2012:
+calidad_aire_euskadi_2012<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2013:
+calidad_aire_euskadi_2013<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2014:
+calidad_aire_euskadi_2014<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2015:
+calidad_aire_euskadi_2015<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2016:
+calidad_aire_euskadi_2016<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2017:
+calidad_aire_euskadi_2017<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2018:
+calidad_aire_euskadi_2018<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2019:
+calidad_aire_euskadi_2019<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#CALIDAD DEL AIRE EUSKADI 2020:NO SE CONSIDERARA ESTE AÑO EN EL ANALISIS POR FALTA DE DATOS PARA TODAS LAS CCAA PENINSULARES:
+calidad_aire_euskadi_2020<-
+  datos_calidad_aire_euskadi %>%
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2020)%>%
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Euskadi') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 
 
-library(tidyverse)
+
 #se cargan aqui datos para la calidad del aire en la rioja por provincias en 2011,2012,2020,2021:
-library(readxl)
+
 #provincias para rioja 2011:
 ESalfaro_2011 <- 
   read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003-2012 (1)/ESalfaro_2003_2012.xls", 
@@ -2456,7 +2526,7 @@ calidad_nacional_2010<-
 
 
 #2011
-rbind(calidad_aire_andalucia_2011,calidad_aire_galicia_2011,calidad_aire_aragon_2011,calidad_aire_2011)
+rbind(calidad_aire_andalucia_2011,calidad_aire_galicia_2011,calidad_aire_aragon_2011,calidad_aire_cantabria_2011,calidad_aire_cataluña_2011,calidad_aire_cyl_2011,calidad_aire_extremadura_2011,calidad_aire_madrid_2011,calidad_aire_mancha_2011,calidad_aire_murcia_2011,calidad_aire_navarra_2011,calidad_aire_rioja_2011,calidad_aire_valencia_2011)
 
 #2012
 
