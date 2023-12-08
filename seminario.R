@@ -2493,6 +2493,24 @@ ccaa_2019_calidad<-
 
   
 
+#datos calidad del aire por año y gases
+#2010 para no2
+ccaa_2010_no2<-ccaa_2010_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2010 para pm2.5
+ccaa_2010_pm2.5<-ccaa_2010_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2010 para pm10
+ccaa_2010_pm10<-ccaa_2010_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
 
 
 
