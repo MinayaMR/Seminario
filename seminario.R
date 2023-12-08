@@ -2443,7 +2443,10 @@ calidad_aire_rioja_2012<-rbind(ESarrubal_2012, ESalfaro_2012, ESgalilea_2012, ES
   
 #union de todoas las ccaa por años 
 ccaa_2010_calidad<-
-  rbind(calidad_aire_andalucia_2010)
+  rbind(calidad_aire_andalucia_2010, calidad_aire_galicia_2010, calidad_aire_cyl_2010, calidad_aire_aragon_2010, calidad_aire_murcia_2010, calidad_aire_navarra_2010, calidad_aire_cantabria_2010, calidad_aire_cataluña_2010, calidad_aire_madrid_2010, calidad_aire_mancha_2010, calidad_aire_valencia_2010, calidad_aire_extremadura_2010, calidad_aire_rioja_2010) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(across(where(is.numeric),desc))
+  
 
 
 
