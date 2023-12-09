@@ -1424,7 +1424,6 @@ calidad_aire_cantabria_2011<-
 
 
 
-
 #calidad aire cantabria 2012: no hay datos
 calidad_aire_cantabria_2012<-
   datos_calidad_aire_cantabria%>% 
