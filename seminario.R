@@ -1445,12 +1445,9 @@ calidad_aire_cantabria_2012<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Cantabria') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
-=======
+
 
 #calidad aire cantabria 2012:nueva tabla:
->>>>>>> 7353df59ca219a29416dea253c146fe33a9173df
-
-
 calidad_aire_cantabria_2012 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2012.csv", 
                              delim = ";", escape_double = FALSE, col_names = FALSE, 
                              trim_ws = TRUE,skip=1) %>% 
@@ -1459,7 +1456,8 @@ calidad_aire_cantabria_2012 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2012
   rename(.data=.,`PM10 (µg/m³)`=X2,`NO2 (µg/m³)`=X3) %>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
 mutate(.data=.,CCAA='Cantabria',`Measurement Year`=2012,`PM2.5 (µg/m³)`=NA) %>% 
-  relocate(CCAA, `Measurement Year`, .before = 1:2)
+  relocate(CCAA, `Measurement Year`, .before = 1:2) %>% 
+  select(.data=.,CCAA,`Measurement Year`,`PM2.5 (µg/m³)`,`PM10 (µg/m³)`,`NO2 (µg/m³)`)
 
 
 #calidad aire cantabria 2013
@@ -2068,7 +2066,7 @@ datos_calidad_aire_rioja %>%
   filter(.data=.,`Measurement Year`==2012)%>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='La Rioja') %>% 
-  relocate(.data=.,CCAA,.before = `Measurement Year`)
+  relocate(.data=.,CCAA,.before = `Measurement Year`) 
 
 #CALIDAD DEL AIRE RIOJA 2013:
 calidad_aire_rioja_2013<-
@@ -2380,7 +2378,7 @@ ESarrubal_2012<-read_excel("DATOS CALIDAD DEL AIRE/Datos validados La Rioja 2003
 
 calidad_aire_rioja_2012<-
   rbind(ESarrubal_2012, ESalfaro_2012, ESgalilea_2012, ESpradejon_2012, ESciguena_2012)  %>%
-  reframe(.data=.,NO2=mean(NO2,na.rm = TRUE),PM10=mean(PM10,na.rm = TRUE),PM25=mean(PM25,na.rm=TRUE),NO=mean(NO,na.rm=TRUE)) %>% 
+  reframe(.data=.,`PM2.5 (μg/m3)`=mean(PM25,na.rm=TRUE),`PM10 (μg/m3)`=mean(PM10,na.rm = TRUE),`NO2 (μg/m3)`=mean(NO2,na.rm = TRUE)) %>% 
   mutate(.data=.,CCAA = "La Rioja", `Measurement Year`= 2012) %>% 
   relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
 
@@ -2418,9 +2416,14 @@ calidad_nacional_2011<-
 
 
 #2012
+colnames(calidad_aire_cantabria_2012) <- c("CCAA", "Measurement Year", "PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)")
+
 ccaa_2012_calidad<-
-  rbind(calidad_aire_andalucia_2012, calidad_aire_galicia_2012, calidad_aire_cyl_2012, calidad_aire_aragon_2012, calidad_aire_murcia_2012, calidad_aire_navarra_2012, calidad_aire_cantabria_2012, calidad_aire_cataluña_2012, calidad_aire_madrid_2012, calidad_aire_mancha_2012, calidad_aire_valencia_2012, calidad_aire_extremadura_2012, calidad_aire_rioja_2012,calidad_aire_euskadi_2012) %>% 
-  select(CCAA:`NO2 (μg/m3)`) 
+  rbind(calidad_aire_andalucia_2012, calidad_aire_galicia_2012, calidad_aire_cyl_2012, calidad_aire_aragon_2012, calidad_aire_murcia_2012, calidad_aire_navarra_2012, calidad_aire_cataluña_2012, calidad_aire_madrid_2012, calidad_aire_mancha_2012, calidad_aire_valencia_2012, calidad_aire_extremadura_2012,calidad_aire_euskadi_2012) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  rbind(.data=.,calidad_aire_rioja_2012,calidad_aire_cantabria_2012)
+
+colnames(calidad_aire_cantabria_2012) <- c("CCAA", "Measurement Year", "PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)")
 
 calidad_nacional_2012<-
   ccaa_2012_calidad%>%
