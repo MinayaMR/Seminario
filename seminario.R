@@ -2418,6 +2418,16 @@ calidad_nacional_2011<-
 
 
 #2012
+ccaa_2012_calidad<-
+  rbind(calidad_aire_andalucia_2012, calidad_aire_galicia_2012, calidad_aire_cyl_2012, calidad_aire_aragon_2012, calidad_aire_murcia_2012, calidad_aire_navarra_2012, calidad_aire_cantabria_2012, calidad_aire_cataluña_2012, calidad_aire_madrid_2012, calidad_aire_mancha_2012, calidad_aire_valencia_2012, calidad_aire_extremadura_2012, calidad_aire_rioja_2012,calidad_aire_euskadi_2012) %>% 
+  select(CCAA:`NO2 (μg/m3)`) 
+
+calidad_nacional_2012<-
+  ccaa_2012_calidad%>%
+  filter_all(~ !is.nan(.)) %>% 
+  summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>%
+  mutate(.data=.,CCAA="Nacional",`Measurement Year`= 2012) %>% relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
+
 
 #2013
 ccaa_2013_calidad<-
