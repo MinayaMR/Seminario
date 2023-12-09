@@ -1436,8 +1436,19 @@ calidad_aire_cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011
     
   
 
+<<<<<<< HEAD
+#calidad aire cantabria 2012: no hay datos
+calidad_aire_cantabria_2012<-
+  datos_calidad_aire_cantabria%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Cantabria') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+=======
 
 #calidad aire cantabria 2012:nueva tabla:
+>>>>>>> 7353df59ca219a29416dea253c146fe33a9173df
 
 
 calidad_aire_cantabria_2012 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2012.csv", 
