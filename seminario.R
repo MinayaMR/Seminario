@@ -2403,7 +2403,8 @@ colnames(calidad_aire_cantabria_2011) <- c("CCAA", "Measurement Year", "PM2.5 (�
 colnames(calidad_aire_navarra_2011) <- c("CCAA", "Measurement Year", "PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)")
 
 calidad_nacional_2011_bind<-
-  rbind(calidad_aire_andalucia_2011,calidad_aire_aragon_2011,calidad_aire_cataluña_2011,calidad_aire_cyl_2011,calidad_aire_euskadi_2011,calidad_aire_extremadura_2011,calidad_aire_galicia_2011,calidad_aire_madrid_2011,calidad_aire_mancha_2011,calidad_aire_murcia_2011,calidad_aire_rioja_2011,calidad_aire_valencia_2011,calidad_aire_cantabria_2011,calidad_aire_navarra_2011) 
+  rbind(calidad_aire_andalucia_2011,calidad_aire_aragon_2011,calidad_aire_cataluña_2011,calidad_aire_cyl_2011,calidad_aire_euskadi_2011,calidad_aire_extremadura_2011,calidad_aire_galicia_2011,calidad_aire_madrid_2011,calidad_aire_mancha_2011,calidad_aire_murcia_2011,calidad_aire_rioja_2011,calidad_aire_valencia_2011,calidad_aire_cantabria_2011,calidad_aire_navarra_2011)
+ 
 
 
 calidad_nacional_2011<-
