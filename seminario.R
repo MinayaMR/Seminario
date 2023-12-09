@@ -813,7 +813,7 @@ datos_calidad_aire_andalucia %>%
 
 
 ##EN 2011:SE DEBEN BUSCAR OTROS DATOS PARA ESTE AÑO PORQUE DEVUELVE UN TIBBLE VACÍO:
-calidad_aire_andalucia_2011<-
+#calidad_aire_andalucia_2011<-
   datos_calidad_aire_andalucia %>% 
   group_by(`Measurement Year`) %>% 
   filter(.data=.,`Measurement Year`==2011) %>% 
