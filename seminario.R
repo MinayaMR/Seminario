@@ -2676,12 +2676,83 @@ ccaa_2019_pm10<-ccaa_2019_calidad %>%
   arrange(.data=., desc(`PM10 (μg/m3)`))
 
 
+# Combinamos los datos de todos los años para NO2
+ccaa_no2_combined <- bind_rows(
+  calidad_nacional_2010 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2010),
+  calidad_nacional_2011 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2011),
+  calidad_nacional_2012 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2012),
+  calidad_nacional_2013 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2013),
+  calidad_nacional_2014 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2014),
+  calidad_nacional_2015 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2015),
+  calidad_nacional_2016 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2016),
+  calidad_nacional_2017 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2017),
+  calidad_nacional_2018 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2018),
+  calidad_nacional_2019 %>% select(CCAA, `NO2 (μg/m3)`) %>% mutate(Year = 2019)
+)
+
+
+# Combinamos los datos de todos los años para PM10
+ccaa_pm10_combined <- bind_rows(
+  calidad_nacional_2010 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2010),
+  calidad_nacional_2011 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2011),
+  calidad_nacional_2012 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2012),
+  calidad_nacional_2013 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2013),
+  calidad_nacional_2014 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2014),
+  calidad_nacional_2015 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2015),
+  calidad_nacional_2016 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2016),
+  calidad_nacional_2017 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2017),
+  calidad_nacional_2018 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2018),
+  calidad_nacional_2019 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2019)
+)
+
+
+# Combinamos los datos de todos los años para PM2.5
+ccaa_pm2.5_combined <- bind_rows(
+  calidad_nacional_2010 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2010),
+  calidad_nacional_2011 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2011),
+  calidad_nacional_2012 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2012),
+  calidad_nacional_2013 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2013),
+  calidad_nacional_2014 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2014),
+  calidad_nacional_2015 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2015),
+  calidad_nacional_2016 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2016),
+  calidad_nacional_2017 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2017),
+  calidad_nacional_2018 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2018),
+  calidad_nacional_2019 %>% select(CCAA, `PM2.5 (μg/m3)`) %>% mutate(Year = 2019)
+)
+
+
 
 #graficas por años y diferentes gases
 
+# Gráfico para NO2
+graph_NO2<-
+  ggplot(ccaa_no2_combined, aes(x = reorder(CCAA, `NO2 (μg/m3)`), y = `NO2 (μg/m3)`, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de NO2 a Nivel Nacional (2010-2019)",
+       x = "Comunidad Autónoma",
+       y = "Niveles de NO2 (μg/m3)",
+       fill = "Año") +
+  theme_classic()
 
+# Gráfico para PM10
+graph_PM10<-
+  ggplot(ccaa_pm10_combined, aes(x = reorder(CCAA, `PM10 (μg/m3)`), y = `PM10 (μg/m3)`, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de PM10 a Nivel Nacional (2010-2019)",
+       x = "Comunidad Autónoma",
+       y = "Niveles de PM10 (μg/m3)",
+       fill = "Año") +
+  theme_classic()
 
-
+# Gráfico para PM2.5
+graph_PM2.5<-
+  ggplot(ccaa_pm2.5_combined, aes(x = reorder(CCAA, `PM2.5 (μg/m3)`), y = `PM2.5 (μg/m3)`, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de PM2.5 a Nivel Nacional (2010-2019)",
+       x = "Comunidad Autónoma",
+       y = "Niveles de PM2.5 (μg/m3)",
+       fill = "Año") +
+  theme_classic()
 
 
 
