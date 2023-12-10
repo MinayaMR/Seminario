@@ -2436,7 +2436,7 @@ calidad_nacional_2012<-
 
 #2013
 ccaa_2013_calidad<-
-  rbind(calidad_aire_andalucia_2013, calidad_aire_galicia_2013, calidad_aire_cyl_2013, calidad_aire_aragon_2013, calidad_aire_murcia_2013, calidad_aire_navarra_2013, calidad_aire_cantabria_2013, calidad_aire_cataluña_2013, calidad_aire_madrid_2013, calidad_aire_mancha_2013, calidad_aire_valencia_2013, calidad_aire_extremadura_2013, calidad_aire_rioja_2013) %>% 
+  rbind(calidad_aire_andalucia_2013, calidad_aire_galicia_2013, calidad_aire_cyl_2013, calidad_aire_aragon_2013, calidad_aire_murcia_2013, calidad_aire_navarra_2013, calidad_aire_cantabria_2013, calidad_aire_cataluña_2013, calidad_aire_madrid_2013, calidad_aire_mancha_2013, calidad_aire_valencia_2013, calidad_aire_extremadura_2013, calidad_aire_rioja_2013,calidad_aire_euskadi_2013) %>% 
   select(CCAA:`NO2 (μg/m3)`) 
 
 calidad_nacional_2013<-
@@ -2448,7 +2448,7 @@ calidad_nacional_2013<-
 
 #2014
 ccaa_2014_calidad<-
-  rbind(calidad_aire_andalucia_2014, calidad_aire_galicia_2014, calidad_aire_cyl_2014, calidad_aire_aragon_2014, calidad_aire_murcia_2014, calidad_aire_navarra_2014, calidad_aire_cantabria_2014, calidad_aire_cataluña_2014, calidad_aire_madrid_2014, calidad_aire_mancha_2014, calidad_aire_valencia_2014, calidad_aire_extremadura_2014, calidad_aire_rioja_2014) %>% 
+  rbind(calidad_aire_andalucia_2014, calidad_aire_galicia_2014, calidad_aire_cyl_2014, calidad_aire_aragon_2014, calidad_aire_murcia_2014, calidad_aire_navarra_2014, calidad_aire_cantabria_2014, calidad_aire_cataluña_2014, calidad_aire_madrid_2014, calidad_aire_mancha_2014, calidad_aire_valencia_2014, calidad_aire_extremadura_2014, calidad_aire_rioja_2014, calidad_aire_euskadi_2014) %>% 
   select(CCAA:`NO2 (μg/m3)`)
 
 calidad_nacional_2014<-
@@ -2460,7 +2460,7 @@ calidad_nacional_2014<-
 
 #2015
 ccaa_2015_calidad<-
-  rbind(calidad_aire_andalucia_2015, calidad_aire_galicia_2015, calidad_aire_cyl_2015, calidad_aire_aragon_2015, calidad_aire_murcia_2015, calidad_aire_navarra_2015, calidad_aire_cantabria_2015, calidad_aire_cataluña_2015, calidad_aire_madrid_2015, calidad_aire_mancha_2015, calidad_aire_valencia_2015, calidad_aire_extremadura_2015, calidad_aire_rioja_2015) %>% 
+  rbind(calidad_aire_andalucia_2015, calidad_aire_galicia_2015, calidad_aire_cyl_2015, calidad_aire_aragon_2015, calidad_aire_murcia_2015, calidad_aire_navarra_2015, calidad_aire_cantabria_2015, calidad_aire_cataluña_2015, calidad_aire_madrid_2015, calidad_aire_mancha_2015, calidad_aire_valencia_2015, calidad_aire_extremadura_2015, calidad_aire_rioja_2015,calidad_aire_euskadi_2015) %>% 
   select(CCAA:`NO2 (μg/m3)`) 
 
 calidad_nacional_2015<-
@@ -2472,7 +2472,7 @@ calidad_nacional_2015<-
 
 #2016
 ccaa_2016_calidad<-
-  rbind(calidad_aire_andalucia_2016, calidad_aire_galicia_2016, calidad_aire_cyl_2016, calidad_aire_aragon_2016, calidad_aire_murcia_2016, calidad_aire_navarra_2016, calidad_aire_cantabria_2016, calidad_aire_cataluña_2016, calidad_aire_madrid_2016, calidad_aire_mancha_2016, calidad_aire_valencia_2016, calidad_aire_extremadura_2016, calidad_aire_rioja_2016) %>% 
+  rbind(calidad_aire_andalucia_2016, calidad_aire_galicia_2016, calidad_aire_cyl_2016, calidad_aire_aragon_2016, calidad_aire_murcia_2016, calidad_aire_navarra_2016, calidad_aire_cantabria_2016, calidad_aire_cataluña_2016, calidad_aire_madrid_2016, calidad_aire_mancha_2016, calidad_aire_valencia_2016, calidad_aire_extremadura_2016, calidad_aire_rioja_2016,calidad_aire_euskadi_2016) %>% 
   select(CCAA:`NO2 (μg/m3)`) 
 
 calidad_nacional_2016<-
@@ -2484,7 +2484,7 @@ calidad_nacional_2016<-
 
 #2017
 ccaa_2017_calidad<-
-  rbind(calidad_aire_andalucia_2017, calidad_aire_galicia_2017, calidad_aire_cyl_2017, calidad_aire_aragon_2017, calidad_aire_murcia_2017, calidad_aire_navarra_2017, calidad_aire_cantabria_2017, calidad_aire_cataluña_2017, calidad_aire_madrid_2017, calidad_aire_mancha_2017, calidad_aire_valencia_2017, calidad_aire_extremadura_2017, calidad_aire_rioja_2017) %>% 
+  rbind(calidad_aire_andalucia_2017, calidad_aire_galicia_2017, calidad_aire_cyl_2017, calidad_aire_aragon_2017, calidad_aire_murcia_2017, calidad_aire_navarra_2017, calidad_aire_cantabria_2017, calidad_aire_cataluña_2017, calidad_aire_madrid_2017, calidad_aire_mancha_2017, calidad_aire_valencia_2017, calidad_aire_extremadura_2017, calidad_aire_rioja_2017,calidad_aire_euskadi_2017) %>% 
   select(CCAA:`NO2 (μg/m3)`) 
 
 calidad_nacional_2017<-
@@ -2496,7 +2496,7 @@ calidad_nacional_2017<-
 
 #2018
 ccaa_2018_calidad<-
-  rbind(calidad_aire_andalucia_2018, calidad_aire_galicia_2018, calidad_aire_cyl_2018, calidad_aire_aragon_2018, calidad_aire_murcia_2018, calidad_aire_navarra_2018, calidad_aire_cantabria_2018, calidad_aire_cataluña_2018, calidad_aire_madrid_2018, calidad_aire_mancha_2018, calidad_aire_valencia_2018, calidad_aire_extremadura_2018, calidad_aire_rioja_2018) %>% 
+  rbind(calidad_aire_andalucia_2018, calidad_aire_galicia_2018, calidad_aire_cyl_2018, calidad_aire_aragon_2018, calidad_aire_murcia_2018, calidad_aire_navarra_2018, calidad_aire_cantabria_2018, calidad_aire_cataluña_2018, calidad_aire_madrid_2018, calidad_aire_mancha_2018, calidad_aire_valencia_2018, calidad_aire_extremadura_2018, calidad_aire_rioja_2018,calidad_aire_euskadi_2018) %>% 
   select(CCAA:`NO2 (μg/m3)`)
 
 calidad_nacional_2018<-
@@ -2508,7 +2508,7 @@ calidad_nacional_2018<-
 
 #2019
 ccaa_2019_calidad<-
-  rbind(calidad_aire_andalucia_2019, calidad_aire_galicia_2019, calidad_aire_cyl_2019, calidad_aire_aragon_2019, calidad_aire_murcia_2019, calidad_aire_navarra_2019, calidad_aire_cantabria_2019, calidad_aire_cataluña_2019, calidad_aire_madrid_2019, calidad_aire_mancha_2019, calidad_aire_valencia_2019, calidad_aire_extremadura_2019, calidad_aire_rioja_2019) %>% 
+  rbind(calidad_aire_andalucia_2019, calidad_aire_galicia_2019, calidad_aire_cyl_2019, calidad_aire_aragon_2019, calidad_aire_murcia_2019, calidad_aire_navarra_2019, calidad_aire_cantabria_2019, calidad_aire_cataluña_2019, calidad_aire_madrid_2019, calidad_aire_mancha_2019, calidad_aire_valencia_2019, calidad_aire_extremadura_2019, calidad_aire_rioja_2019, calidad_aire_euskadi_2019) %>% 
   select(CCAA:`NO2 (μg/m3)`) 
   
 calidad_nacional_2019<-
