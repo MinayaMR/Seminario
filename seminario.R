@@ -701,6 +701,10 @@ valencia_data_calidad_2021<-
 
 
 
+
+
+
+
 #limpieza de la tabla excel por ccaa.
 datos_calidad_aire_galicia<-
   tabla_españa %>%
@@ -800,6 +804,97 @@ datos_calidad_aire_rioja<-
 
  
 print(tabla_españa)
+#calidad aire asturias por años
+#2010
+calidad_aire_asturias_2010<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2010) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2011
+calidad_aire_asturias_2011<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2011) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2012
+calidad_aire_asturias_2012<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2012) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2013
+calidad_aire_asturias_2013<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2013) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2014
+calidad_aire_asturias_2014<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2014) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2015
+calidad_aire_asturias_2015<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2015) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2016
+calidad_aire_asturias_2016<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2016) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2017
+calidad_aire_asturias_2017<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2017) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+#2018
+calidad_aire_asturias_2018<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2018) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
+
+
+#2019
+calidad_aire_asturias_2019<-
+  datos_calidad_aire_asturias%>% 
+  group_by(`Measurement Year`) %>% 
+  filter(.data=.,`Measurement Year`==2019) %>% 
+  summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(.data=.,CCAA='Asturias') %>% 
+  relocate(.data=.,CCAA,.before = `Measurement Year`)
 #CALIDAD DE AIRE EN ANDALUCIA POR AÑOS:
 
 ## EN 2010:
@@ -2769,7 +2864,7 @@ ccaa_pm2.5_combined <- bind_rows(
 
 # Gráfico para NO2
 graph_NO2<-
-  ggplot(ccaa_no2_combined, aes(x = reorder(CCAA, `NO2 (μg/m3)`), y = `NO2 (μg/m3)`, fill = as.factor(Year))) +
+  ggplot(data=ccaa_no2_combined, aes(x = reorder(CCAA, `NO2 (μg/m3)`), y = `NO2 (μg/m3)`, fill = as.factor(Year))) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Niveles de NO2 a Nivel Nacional (2010-2019)",
        x = "Comunidad Autónoma",
