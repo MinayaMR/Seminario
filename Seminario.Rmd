@@ -37,13 +37,16 @@ Los objetivos generales de este seminario han sido:
 ### CARGA DE PAQUETES:
 
 ```{r,message=FALSE,warning=FALSE}
-#paquetes a instalar
+#Paquetes a instalar
 library(ggplot2)
 library(rjson)
 library(readxl)
 library(tidyverse)
 library(jsonlite)
 library(readr)
+library(dplyr)
+library(readODS)
+library(tidyr)
 ```
 
 

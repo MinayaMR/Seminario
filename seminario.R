@@ -7,6 +7,7 @@ library(jsonlite)
 library(readr)
 library(dplyr)
 library(readODS)
+library(tidyr)
 
 #CARGA DE DATOS DE DEFUNCIONES DE LAS CCAA QUE EMPIEZAN POR [A,B,C]:
 
