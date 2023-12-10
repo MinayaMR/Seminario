@@ -34,7 +34,8 @@ Los objetivos generales de este seminario han sido:
 ## **METODOLOGíA :**
 ### Metodologías del Primer Objetivo General:
 - Descargar los archivos en formato .csv que contienen las informaciones de defunciones anuales por Enfermedades Respiratorias para cada Comunidad Autónoma de España Peninsular desde 2010 a 2019. Estas tablas se han obtenido en totalidad a través de la página oficial del INEbase que es el sistema utilizado por el INE (Instituto Nacional de Estadística) para el almacenamiento de la información estadística en Internet. [Enlace directo al recurso utilizado para descargar los archivos](https://www.ine.es/jaxiT3/Tabla.htm?t=10803&L=0)
-- 
+- Filtrar y cargar los datos para cada Comunidad Autónoma,organizarlos por años y por Comunidades en dataframes para cada año del 2010 al 2019.
+- Representar la evolución de la tasa de Mortalidad obtenida en las diferentes Comunidades Autónomas para cada año en unas gráficas distintas del 2010 al 2019.
 
 
 
