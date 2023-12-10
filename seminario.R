@@ -2760,7 +2760,7 @@ graph_PM2.5<-
 
 
 #LA PARTE DE ANALISIS Y CONCLUSION:JOIN DE TABLAS DE AMBOS:DEFUNCIONES Y CALIDAD DEL AIRE:
-
+#2010:
 library(dplyr)
 
 # Asegurar el orden de las filas en ambas tablas
@@ -2785,15 +2785,220 @@ mortalidad_10<-
 
 ccaa_2010_calidad <- ccaa_2010_calidad %>% arrange(CCAA, `Measurement Year`)
 
-# Realizar el left join y ajustar nombres
+#TABLA FINAL 2010:
 tabla_final_2010<-left_join(mortalidad_10, ccaa_2010_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
+#TABLA FINAL 2011:
+
+#TABLA FINAL 2012:
+mortalidad_12<-
+  mortalidad_12 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2012_calidad <-ccaa_2012_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA 2012:
+tabla_final_2012<-left_join(mortalidad_12, ccaa_2012_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
 
+#2013:
+
+mortalidad_13<-
+  mortalidad_13 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2013_calidad <-ccaa_2013_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2013:
+tabla_final_2013<-left_join(mortalidad_13, ccaa_2013_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
 
+#2014:
+mortalidad_14<-
+  mortalidad_14 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2014_calidad <-ccaa_2014_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA  FINAL 2014:
+tabla_final_2014<-left_join(mortalidad_14, ccaa_2014_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2015:
+
+mortalidad_15<-
+  mortalidad_15 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2015_calidad <-ccaa_2015_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2015:
+tabla_final_2015<-left_join(mortalidad_15, ccaa_2015_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+#2016:
+mortalidad_16<-
+  mortalidad_16 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+
+ccaa_2016_calidad <-ccaa_2016_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA  FINAL 2016:
+tabla_final_2016<-left_join(mortalidad_16, ccaa_2016_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+#2017:
+
+mortalidad_17<-
+  mortalidad_17 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2017_calidad <-ccaa_2017_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2017:
+tabla_final_2017<-left_join(mortalidad_17, ccaa_2017_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2018:
+mortalidad_18<-
+  mortalidad_18%>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2018_calidad <-ccaa_2018_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2018:
+tabla_final_2018<-left_join(mortalidad_18, ccaa_2018_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2019:
+mortalidad_19<-
+  mortalidad_19 %>%  
+  mutate(.data=.,CCAA = case_when(
+    CCAA == "Madrid, Comunidad de" ~ "Madrid",
+    CCAA == "Comunitat Valenciana" ~ "Valencia",
+    CCAA == "Castilla y León" ~ "Castilla y Leon",
+    CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+    CCAA == "País Vasco" ~ "Euskadi",
+    CCAA == "Asturias, Principado de" ~ "Asturias",
+    CCAA == "Aragón" ~ "Aragon",
+    CCAA == "Murcia, Región de" ~ "Murcia",
+    CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+    CCAA == "Rioja, La" ~ "La Rioja",
+    TRUE ~ CCAA
+  )) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+ccaa_2019_calidad <-ccaa_2019_calidad %>% arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2019:
+tabla_final_2019<-left_join(mortalidad_19, ccaa_2019_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
 
 
