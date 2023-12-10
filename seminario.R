@@ -2402,13 +2402,14 @@ calidad_nacional_2010<-
 colnames(calidad_aire_cantabria_2011) <- c("CCAA", "Measurement Year", "PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)")
 colnames(calidad_aire_navarra_2011) <- c("CCAA", "Measurement Year", "PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)")
 
-calidad_nacional_2011_bind<-
-  rbind(calidad_aire_andalucia_2011,calidad_aire_aragon_2011,calidad_aire_cataluña_2011,calidad_aire_cyl_2011,calidad_aire_euskadi_2011,calidad_aire_extremadura_2011,calidad_aire_galicia_2011,calidad_aire_madrid_2011,calidad_aire_mancha_2011,calidad_aire_murcia_2011,calidad_aire_rioja_2011,calidad_aire_valencia_2011,calidad_aire_cantabria_2011,calidad_aire_navarra_2011)
+ccaa_2011_calidad<-
+  rbind(calidad_aire_andalucia_2011,calidad_aire_aragon_2011,calidad_aire_cataluña_2011,calidad_aire_cyl_2011,calidad_aire_euskadi_2011,calidad_aire_extremadura_2011,calidad_aire_galicia_2011,calidad_aire_madrid_2011,calidad_aire_mancha_2011,calidad_aire_murcia_2011,calidad_aire_rioja_2011,calidad_aire_valencia_2011,calidad_aire_cantabria_2011,calidad_aire_navarra_2011) %>% 
+  select(CCAA:`NO2 (μg/m3)`) 
  
 
 
 calidad_nacional_2011<-
-  calidad_nacional_2011_bind%>%
+  ccaa_2011_calidad%>%
   filter_all(~ !is.nan(.)) %>% 
   summarise(.data=.,across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>%
   mutate(.data=.,CCAA="Nacional",`Measurement Year`= 2011) %>% relocate(.data=.,CCAA, `Measurement Year`,.before = 1)
@@ -2539,6 +2540,42 @@ ccaa_2010_pm10<-ccaa_2010_calidad %>%
   select(CCAA:`PM10 (μg/m3)`) %>% 
   arrange(.data=., desc(`PM10 (μg/m3)`))
 
+#2011
+#2011 para no2
+ccaa_2011_no2<-ccaa_2011_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2011 para pm2.5
+ccaa_2011_pm2.5<-ccaa_2011_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2011 para pm10
+ccaa_2011_pm10<-ccaa_2011_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
+
+#2012
+
+#2012 para no2
+ccaa_2012_no2<-ccaa_2012_calidad %>% 
+  relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`NO2 (μg/m3)`) %>% 
+  arrange(.data=., desc(`NO2 (μg/m3)`))
+
+#2012 para pm2.5
+ccaa_2012_pm2.5<-ccaa_2012_calidad %>% 
+  select(CCAA:`PM2.5 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+#2012 para pm10
+ccaa_2012_pm10<-ccaa_2012_calidad %>% 
+  relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
+  select(CCAA:`PM10 (μg/m3)`) %>% 
+  arrange(.data=., desc(`PM10 (μg/m3)`))
 
 #2013
 
@@ -2678,6 +2715,8 @@ ccaa_2019_pm10<-ccaa_2019_calidad %>%
   relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
   select(CCAA:`PM10 (μg/m3)`) %>% 
   arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
 
 
 # Combinamos los datos de todos los años para NO2
