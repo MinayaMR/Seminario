@@ -709,8 +709,7 @@ valencia_data_calidad_2021<-
 datos_calidad_aire_galicia<-
   tabla_españa %>%
   filter(`City or Locality` %in% c("A Coruna", "As Pontes De Garcia Rodriguez","Cee","Arteixo","Cambre","Cervo","Dumbria","Ferrol","Lousame","Lugo","Muras","Neda","Ordes","Oural","Ourense","Pastoriza","Pontevedra","Santiago De Compostela","Savinao (O)","Traslodeiro","Vigo","Vilalba","Xove")) %>% 
-  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`) %>% 
-  drop_na()
+  select(.data=.,`City or Locality`:`NO2 temporal coverage (%)`)
   
 
 
@@ -2810,6 +2809,23 @@ ccaa_2019_pm10<-ccaa_2019_calidad %>%
   relocate(`PM10 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
   select(CCAA:`PM10 (μg/m3)`) %>% 
   arrange(.data=., desc(`PM10 (μg/m3)`))
+
+
+#GRAFICA PARA NO2
+total_años_no2<-
+  bind_rows(ccaa_2010_no2, ccaa_2013_no2, ccaa_2014_no2, ccaa_2015_no2, ccaa_2016_no2, ccaa_2017_no2, ccaa_2018_no2, ccaa_2019_no2)
+
+total_años_no2$`Measurement Year`<-as.factor(total_años_no2$`Measurement Year`)
+
+grafica_NO2<-
+  ggplot(data=total_años_no2, aes(x = `Measurement Year`, y =`NO2 (μg/m3)`, fill = CCAA)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de NO2 por CCAA (2010-2019)",
+       x = "Año",
+       y = "Niveles de NO2 (μg/m3)",
+       fill = "CCAA") +
+  theme_classic()
+
 
 
 
