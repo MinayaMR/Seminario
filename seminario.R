@@ -3349,3 +3349,107 @@ ccaa_2019_pm10<-
 tabla_pm10_2019<-left_join(mortalidad_19,ccaa_2019_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+
+#NO2:
+
+# 2010:
+ccaa_2010_no2 <-
+  ccaa_2010_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2010 CON NO2:
+tabla_no2_2010 <- left_join(mortalidad_10, ccaa_2010_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2011:
+ccaa_2011_no2 <-
+  ccaa_2011_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2011 CON NO2:
+tabla_no2_2011 <- left_join(mortalidad_11, ccaa_2011_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2012:
+  ccaa_2012_no2 <-
+  ccaa_2012_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2012 CON NO2:
+tabla_no2_2012 <- left_join(mortalidad_12, ccaa_2012_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2013:
+ccaa_2013_no2 <-
+  ccaa_2013_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2013 CON NO2:
+tabla_no2_2013 <- left_join(mortalidad_13, ccaa_2013_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2014:
+ccaa_2014_no2 <-
+  ccaa_2014_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2014 CON NO2:
+tabla_no2_2014 <- left_join(mortalidad_14, ccaa_2014_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2015:
+ccaa_2015_no2 <-
+  ccaa_2015_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2015 CON NO2:
+tabla_no2_2015 <- left_join(mortalidad_15, ccaa_2015_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2016:
+ccaa_2016_no2 <-
+  ccaa_2016_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2016 CON NO2:
+tabla_no2_2016 <- left_join(mortalidad_16, ccaa_2016_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2017:
+ccaa_2017_no2 <-
+  ccaa_2017_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2017 CON NO2:
+tabla_no2_2017 <- left_join(mortalidad_17, ccaa_2017_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2018:
+ccaa_2018_no2 <-
+  ccaa_2018_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2018 CON NO2:
+tabla_no2_2018 <- left_join(mortalidad_18, ccaa_2018_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+# 2019:
+ccaa_2019_no2 <-
+  ccaa_2019_no2 %>%
+  arrange(CCAA, `Measurement Year`)
+
+# TABLA FINAL 2019 CON NO2:
+tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
