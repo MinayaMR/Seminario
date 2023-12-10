@@ -32,6 +32,9 @@ Los objetivos generales de este seminario han sido:
 - **Objetivo principal:** Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
 
 ## **METODOLOGíA :**
+### Metodologías del Primer Objetivo General:
+- Descargar los archivos en formato .csv que contienen las informaciones de defunciones anuales por Enfermedades Respiratorias para cada Comunidad Autónoma de España Peninsular desde 2010 a 2019. Estas tablas se han obtenido en totalidad a través de la página oficial del INEbase que es el sistema utilizado por el INE (Instituto Nacional de Estadística) para el almacenamiento de la información estadística en Internet. [Enlace directo al recurso utilizado para descargar los archivos](https://www.ine.es/jaxiT3/Tabla.htm?t=10803&L=0)
+- 
 
 
 
@@ -46,6 +49,9 @@ library(readxl)
 library(tidyverse)
 library(jsonlite)
 library(readr)
+library(dplyr)
+library(readODS)
+library(tidyr)
 ```
 
 

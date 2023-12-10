@@ -188,11 +188,10 @@ vlc_datos<-
 #SE DEBEN REVISAR LOS DATOS PARA QUITAR LOS SEPARADORES DE MILES DE LOS MILES PORQUE CREARAN PROBLEMAS A LA HORA DE JUNTARLOS 
 #PARA QUE LOS DATOS SEAN COHERENTES,TENEMOS QUE CAMBIAR LOS DATOS QUE VIENEN SEPARADOS POR PUNTOS,LO CONSIDERAREMOS COMO MILES Y NO COMO INDICES COMO NO TENEMOS INDICADORES DEL CONTRARIO:
 
-library(tidyverse)
 vlc_rec<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
-str
+
 #tabla andalucia sin separador de miles:
 
 andalucia_rec<-
@@ -412,9 +411,7 @@ andalucia_def_2020<-
 andalucia_def_2021<-
   andalucia_rec %>% filter(.data=.,Year==2021)
 
-library(ggplot2)
 
-library(dplyr)
 
 
 #GRÁFICOS POR AÑOS :
@@ -593,40 +590,28 @@ IDM_CCAA_graph<-
 #AQUI SE EMPIEZAN A CARGAR LOS DOCUMENTOS RELACIONADOS A CALIDAD DEL AIRE POR ESPAÑA:
 #HEAD
 #Datos diarios calidad aire valencia
-library(readr)
+
 c_aire_valencia <- read_delim("DATOS/rvvcca.csv", 
                      delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
 
-library(readr)
+
 c_aire_andalucia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire andalucia.csv",
                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
-#c_aire_baleares <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv",
-                             #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-#calidad_aire_baleares <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire baleares.csv")
-
-
-#c_aire_castilla_la_mancha <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire castilla la mancha.csv",
-                             # delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-#c_aire_cataluña <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
 calidad_aire_cataluña <- read_csv("DATOS CALIDAD DEL AIRE/calidad aire cataluña.csv")
 
 
-#c_aire_madrid <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire madrid.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 
 
 c_aire_murcia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire murcia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-#c_aire_pais_vasco <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire pais vasco.csv",
-                              #delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 
 c_aire_valencia <- read_delim("DATOS CALIDAD DEL AIRE/calidad aire valencia.csv",
                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
@@ -643,20 +628,15 @@ c_aire_castilla_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire cast
 calidad_del_aire_castilla_y_leon <- read_delim("DATOS CALIDAD DEL AIRE/calidad del aire castilla y leon.csv", 
                                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
-library(readr)
-
-library(readxl)
-oms_datos_mundiales <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
-                                                         sheet = "AAP_2022_city_v9")
-library(dplyr)
-tabla_españa<-
-  oms_datos_mundiales %>% 
+#TABLA PRINCIPAL DE DATOS:
+tabla_españa <- read_excel("DATOS/who_aap_2021_v9_11august2022.xlsx", 
+                                                         sheet = "AAP_2022_city_v9") %>% 
   filter(`WHO Country Name` == "Spain")
-tabla_españa
+
 
 
 #Aqui comienza la limpieza de tablas relacionadas con la calidad del aire.
-library(tidyverse)
+
 andalucia_data_calidad<-
   c_aire_andalucia %>%
   drop_na() %>% 
@@ -802,8 +782,7 @@ datos_calidad_aire_rioja<-
   
 
 
- 
-print(tabla_españa)
+
 #calidad aire asturias por años
 #2010
 calidad_aire_asturias_2010<-
@@ -1311,6 +1290,11 @@ calidad_aire_murcia_2011<-
   relocate(.data=.,CCAA,.before = `Measurement Year`) %>% 
   select(.data=., CCAA, `Measurement Year`, `PM2.5 (μg/m3)`, `PM10 (μg/m3)`, `NO2 (μg/m3)`)
 
+
+
+
+
+
 #Calidad aire murcia 2012: NO HAY DATOS 
 calidad_aire_murcia_2012<-
   datos_calidad_aire_murcia %>% 
@@ -1385,6 +1369,7 @@ calidad_aire_murcia_2019<-
 
 
 
+
 #CALIDAD DEL AIRE NAVARRA PARA TODOS LOS AÑOS:
 
 #calidad aire navarra 2010
@@ -1395,6 +1380,7 @@ calidad_aire_navarra_2010<-
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
   mutate(.data=.,CCAA='Navarra') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
+
 
 #CALIDAD DEL AIRE 2011 NAVARRA NUEVOS DATOS:
 calidad_aire_navarra_2011 <- read_delim("DATOS CALIDAD DEL AIRE/navarra_2011.csv", 
@@ -2154,6 +2140,7 @@ calidad_aire_rioja_2011<-
   mutate(.data=.,CCAA='La Rioja') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`)
 
+
 #CALIDAD DEL AIRE RIOJA 2012:SE DEBEN BUSCAR OTROS DATOS /TIBBLE VACÍO:
 calidad_aire_rioja_2012<-
 datos_calidad_aire_rioja %>%
@@ -2682,6 +2669,7 @@ ccaa_2013_no2<-ccaa_2013_calidad %>%
   select(CCAA:`NO2 (μg/m3)`) %>% 
   arrange(.data=., desc(`NO2 (μg/m3)`))
 
+
 #2013 para pm2.5
 ccaa_2013_pm2.5<-ccaa_2013_calidad %>% 
   select(CCAA:`PM2.5 (μg/m3)`) %>% 
@@ -2706,6 +2694,8 @@ ccaa_2014_no2<-ccaa_2014_calidad %>%
 ccaa_2014_pm2.5<-ccaa_2014_calidad %>% 
   select(CCAA:`PM2.5 (μg/m3)`) %>% 
   arrange(.data=., desc(`PM2.5 (μg/m3)`))
+
+
 
 #2014 para pm10
 ccaa_2014_pm10<-ccaa_2014_calidad %>% 
@@ -2782,6 +2772,7 @@ ccaa_2018_no2<-ccaa_2018_calidad %>%
   relocate(`NO2 (μg/m3)`, .before = `PM2.5 (μg/m3)`) %>% 
   select(CCAA:`NO2 (μg/m3)`) %>% 
   arrange(.data=., desc(`NO2 (μg/m3)`))
+
 
 #2018 para pm2.5
 ccaa_2018_pm2.5<-ccaa_2018_calidad %>% 

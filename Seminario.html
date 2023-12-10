@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-12-10" />
+<meta name="date" content="2023-12-11" />
 
 <title>Seminario:Calidad del Aire y Defunciones por Enfermedades Respiratorias</title>
 
@@ -355,7 +355,7 @@ por Enfermedades Respiratorias</h1>
 <h4 class="author">Aya Toussi</h4>
 <h4 class="author">Minaya Moreno Romero</h4>
 <h4 class="author">Vanessa Pérez Paredes</h4>
-<h4 class="date">2023-12-10</h4>
+<h4 class="date">2023-12-11</h4>
 
 </div>
 
@@ -387,6 +387,20 @@ de defunción por enfermedades respiratorias.</li>
 </div>
 <div id="metodología" class="section level2">
 <h2><strong>METODOLOGíA :</strong></h2>
+<div id="metodologías-del-primer-objetivo-general" class="section level3">
+<h3>Metodologías del Primer Objetivo General:</h3>
+<ul>
+<li>Descargar los archivos en formato .csv que contienen las
+informaciones de defunciones anuales por Enfermedades Respiratorias para
+cada Comunidad Autónoma de España Peninsular desde 2010 a 2019. Estas
+tablas se han obtenido en totalidad a través de la página oficial del
+INEbase que es el sistema utilizado por el INE (Instituto Nacional de
+Estadística) para el almacenamiento de la información estadística en
+Internet. <a href="https://www.ine.es/jaxiT3/Tabla.htm?t=10803&amp;L=0">Enlace
+directo al recurso utilizado para descargar los archivos</a></li>
+<li></li>
+</ul>
+</div>
 <div id="carga-de-paquetes" class="section level3">
 <h3>CARGA DE PAQUETES:</h3>
 <pre class="r"><code>#PAQUETES A INSTALAR:
@@ -395,7 +409,10 @@ library(rjson)
 library(readxl)
 library(tidyverse)
 library(jsonlite)
-library(readr)</code></pre>
+library(readr)
+library(dplyr)
+library(readODS)
+library(tidyr)</code></pre>
 </div>
 </div>
 <div id="section" class="section level2">
