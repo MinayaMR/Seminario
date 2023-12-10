@@ -2759,6 +2759,37 @@ graph_PM2.5<-
   theme_classic()
 
 
+#LA PARTE DE ANALISIS Y CONCLUSION:JOIN DE TABLAS DE AMBOS:DEFUNCIONES Y CALIDAD DEL AIRE:
+
+library(dplyr)
+
+# Asegurar el orden de las filas en ambas tablas
+mortalidad_10<-
+  mortalidad_10 %>%  
+  mutate(.data=.,CCAA = case_when(
+  CCAA == "Madrid, Comunidad de" ~ "Madrid",
+  CCAA == "Comunitat Valenciana" ~ "Valencia",
+  CCAA == "Castilla y León" ~ "Castilla y Leon",
+  CCAA == "Castilla - La Mancha" ~ "Castilla La Mancha",
+  CCAA == "País Vasco" ~ "Euskadi",
+  CCAA == "Asturias, Principado de" ~ "Asturias",
+  CCAA == "Aragón" ~ "Aragon",
+  CCAA == "Murcia, Región de" ~ "Murcia",
+  CCAA == "Navarra, Comunidad Foral de" ~ "Navarra",
+  CCAA == "Rioja, La" ~ "La Rioja",
+  TRUE ~ CCAA
+)) %>%
+  filter(!CCAA %in% c("Balears, Illes", "Canarias")) %>% 
+  arrange(CCAA, Year)
+
+
+ccaa_2010_calidad <- ccaa_2010_calidad %>% arrange(CCAA, `Measurement Year`)
+
+# Realizar el left join y ajustar nombres
+tabla_final_2010<-left_join(mortalidad_10, ccaa_2010_calidad, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
 
 
 
