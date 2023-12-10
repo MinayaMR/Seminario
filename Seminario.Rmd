@@ -1,10 +1,8 @@
 ---
 title: "Seminario:Calidad del Aire y Defunciones por Enfermedades Respiratorias"
-subtitle: " Repositorio: [GitHub](https://github.com/MinayaMR/Seminario)"
-author:
-- name: "Aya Toussi"
-- name: " Minaya Moreno Romero"
-- name: "Vanessa Pérez Paredes"
+author: "-name: Aya Toussi
+-name: Minaya Moreno Romero
+ -name: Vanessa Pérez Paredes "
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -12,7 +10,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```{r, echo=FALSE}
-
 htmltools::img(src = knitr::image_uri("Escudo Color TC.png"), 
                alt = 'logo', 
                style = 'position:absolute; top:0; left:0; padding:10px; width:100px; height:100px;')
@@ -20,14 +17,14 @@ htmltools::img(src = knitr::image_uri("Escudo Color TC.png"),
 
 
 ## INTRODUCCIÓN:
-En este seminario se ha recopilado información y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
+En este seminario se ha recopilado informacion y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
 
 ## OBJETIVO GENERAL:
 Los objetivos generales de este seminario han sido:
 
 - El estudio de la evolución de las defunciones por comunidades autónomas a lo largo de los años.
 - El estudio de la calidad del aire según la concentración de gases obtenida en cada comunidad autónoma y como cambia a lo largo de los años.
-- **Objetivo principal:** Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
+- Objetivo principal: Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
 
 ## METODOLOGIA :
 
@@ -37,16 +34,13 @@ Los objetivos generales de este seminario han sido:
 ### CARGA DE PAQUETES:
 
 ```{r,message=FALSE,warning=FALSE}
-#Paquetes a instalar
+#paquetes a instalar
 library(ggplot2)
 library(rjson)
 library(readxl)
 library(tidyverse)
 library(jsonlite)
 library(readr)
-library(dplyr)
-library(readODS)
-library(tidyr)
 ```
 
 
@@ -55,4 +49,6 @@ library(tidyr)
 ```{r pressure,echo=TRUE}
 plot(pressure)
 ```
+
+
 

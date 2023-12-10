@@ -1118,7 +1118,7 @@ calidad_aire_cyl_2011<-
   group_by(`Measurement Year`) %>% 
   filter(.data=.,`Measurement Year`==2011) %>% 
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE))) %>% 
-  mutate(.data=.,CCAA='CyL') %>% 
+  mutate(.data=.,CCAA='Castilla y Leon') %>% 
   relocate(.data=.,CCAA,.before = `Measurement Year`) %>% 
   select(.data = ., CCAA, `Measurement Year`, `PM2.5 (μg/m3)`, `PM10 (μg/m3)`, `NO2 (μg/m3)`)
 
@@ -2827,6 +2827,50 @@ grafica_NO2<-
        y = "Niveles de NO2 (μg/m3)",
        fill = "CCAA") +
   theme_classic()
+
+#GRAFICO PM10
+total_años_pm10<-
+  bind_rows(ccaa_2010_pm10, ccaa_2011_pm10, ccaa_2012_pm10, ccaa_2013_pm10, ccaa_2014_pm10, ccaa_2015_pm10, ccaa_2016_pm10, ccaa_2017_pm10, ccaa_2018_pm10, ccaa_2019_pm10)
+
+total_años_pm10$`Measurement Year`<-as.factor(total_años_pm10$`Measurement Year`)
+
+valores_faltantes1<-
+  total_años_pm10(CCAA = "Euskadi", `Measurement Year` = as.factor(2011), `PM10 (μg/m3)` = 0)
+
+valores_faltantes3<-total_años_pm10(CCAA = "Extremadura",
+                                    `Measurement Year` = as.factor(2011),
+                                    `PM10 (μg/m3)` = 0)
+valores_faltantes4<-total_años_pm10(CCAA = "Galicia",
+                                    `Measurement Year` = as.factor(2011),
+                                    `PM10 (μg/m3)` = 0)
+valores_faltantes5<-total_años_pm10(CCAA = "Murcia",
+                                    `Measurement Year` = as.factor(2011),
+                                    `PM10 (μg/m3)` = 0)
+valores_faltantes6<-total_años_pm10(CCAA = "Murcia",
+                                    `Measurement Year` = as.factor(2012),
+                                    `PM10 (μg/m3)` = 0)
+valores_faltantes7<-total_años_pm10(CCAA = "Navarra",
+                                    `Measurement Year` = as.factor(2012),
+                                    `PM10 (μg/m3)` = 0)
+
+
+total_años_no2_filas<-bind_rows(total_años_no2, valores_faltantes1, valores_faltantes2, valores_faltantes3, valores_faltantes4, valores_faltantes5, valores_faltantes6, valores_faltantes7)
+  
+  
+
+total_años_pm10 <- total_años_pm10 %>%
+  mutate(`PM10 (μg/m3)` = replace(`PM10 (μg/m3)`, is.na(`PM10 (μg/m3)`), 0)) 
+
+  
+grafica_pm10<-
+  ggplot(total_años_pm10, aes(x = `Measurement Year`, y = `PM10 (μg/m3)`, fill = CCAA)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de pm10 por CCAA (2010-2019)",
+       x = "Año",
+       y = "Niveles de pm10 (μg/m3)",
+       fill = "CCAA") +
+  theme_classic()
+
 
 
 
