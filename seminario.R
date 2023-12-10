@@ -1531,7 +1531,7 @@ calidad_aire_cantabria_2011 <- read_delim("DATOS CALIDAD DEL AIRE/cantabria_2011
     
   
 
-<<<<<<< HEAD
+
 #calidad aire cantabria 2012: no hay datos
 calidad_aire_cantabria_2012<-
   datos_calidad_aire_cantabria%>% 
@@ -2752,6 +2752,7 @@ ccaa_2016_pm10<-ccaa_2016_calidad %>%
   arrange(.data=., desc(`PM10 (μg/m3)`))
 
 
+
 #2017
 
 #2017 para no2
@@ -2829,6 +2830,7 @@ ccaa_no2_combined <- bind_rows(
 )
 
 
+
 # Combinamos los datos de todos los años para PM10
 ccaa_pm10_combined <- bind_rows(
   calidad_nacional_2010 %>% select(CCAA, `PM10 (μg/m3)`) %>% mutate(Year = 2010),
@@ -2895,7 +2897,7 @@ graph_PM2.5<-
 
 #LA PARTE DE ANALISIS Y CONCLUSION:JOIN DE TABLAS DE AMBOS:DEFUNCIONES Y CALIDAD DEL AIRE:
 #2010:
-library(dplyr)
+
 
 # Asegurar el orden de las filas en ambas tablas
 mortalidad_10<-
@@ -3031,6 +3033,7 @@ tabla_final_2015<-left_join(mortalidad_15, ccaa_2015_calidad, by = c("CCAA" = "C
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
 
+
 #2016:
 mortalidad_16<-
   mortalidad_16 %>%  
@@ -3136,3 +3139,213 @@ tabla_final_2019<-left_join(mortalidad_19, ccaa_2019_calidad, by = c("CCAA" = "C
 
 
 
+
+#JOINS CON LAS MORTALIDADES Y GASES:
+
+#PM2.5:
+
+#2010:
+ccaa_2010_pm2.5<-
+  ccaa_2010_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2010 CON PM2.5:
+tabla_pm25_2010<-left_join(mortalidad_10,ccaa_2010_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2011:
+ccaa_2011_pm2.5<-
+  ccaa_2011_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2011 CON PM2.5:
+tabla_pm25_2011<-left_join(mortalidad_11,ccaa_2011_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2012:
+ccaa_2012_pm2.5<-
+  ccaa_2012_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2012 CON PM2.5:
+tabla_pm25_2012<-left_join(mortalidad_12,ccaa_2012_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2013:
+
+ccaa_2013_pm2.5<-
+  ccaa_2013_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2013 CON PM2.5:
+tabla_pm25_2013<-left_join(mortalidad_13,ccaa_2013_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2014:
+ccaa_2014_pm2.5<-
+  ccaa_2014_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2014 CON PM2.5:
+tabla_pm25_2014<-left_join(mortalidad_14,ccaa_2014_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2015:
+ccaa_2015_pm2.5<-
+  ccaa_2015_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2015 CON PM2.5:
+tabla_pm25_2015<-left_join(mortalidad_15,ccaa_2015_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2016:
+ccaa_2016_pm2.5<-
+  ccaa_2016_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2016 CON PM2.5:
+tabla_pm25_2016<-left_join(mortalidad_16,ccaa_2016_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+#2017:
+ccaa_2017_pm2.5<-
+  ccaa_2017_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2017 CON PM2.5:
+tabla_pm25_2017<-left_join(mortalidad_17,ccaa_2017_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2018:
+ccaa_2018_pm2.5<-
+  ccaa_2018_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2018 CON PM2.5:
+tabla_pm25_2018<-left_join(mortalidad_18,ccaa_2018_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2019:
+ccaa_2019_pm2.5<-
+  ccaa_2019_pm2.5 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2019 CON PM2.5:
+tabla_pm25_2019<-left_join(mortalidad_19,ccaa_2019_pm2.5, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#PM210:
+
+#2010:
+ccaa_2010_pm10<-
+  ccaa_2010_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2010 CON PM10:
+tabla_pm10_2010<-left_join(mortalidad_10,ccaa_2010_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2011:
+ccaa_2011_pm10<-
+  ccaa_2011_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2011 CON PM10:
+tabla_pm10_2011<-left_join(mortalidad_11,ccaa_2011_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2012:
+ccaa_2012_pm10<-
+  ccaa_2012_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2012 CON PM10:
+tabla_pm10_2012<-left_join(mortalidad_12,ccaa_2012_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2013:
+
+ccaa_2013_pm10<-
+  ccaa_2013_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2013 CON PM10:
+tabla_pm10_2013<-left_join(mortalidad_13,ccaa_2013_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2014:
+ccaa_2014_pm10<-
+  ccaa_2014_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2014 CON PM10:
+tabla_pm10_2014<-left_join(mortalidad_14,ccaa_2014_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2015:
+ccaa_2015_pm10<-
+  ccaa_2015_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2015 CON PM10:
+tabla_pm10_2015<-left_join(mortalidad_15,ccaa_2015_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2016:
+ccaa_2016_pm10<-
+  ccaa_2016_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2016 CON PM10:
+tabla_pm10_2016<-left_join(mortalidad_16,ccaa_2016_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+#2017:
+ccaa_2017_pm10<-
+  ccaa_2017_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2017 CON PM10:
+tabla_pm10_2017<-left_join(mortalidad_17,ccaa_2017_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2018:
+ccaa_2018_pm10<-
+  ccaa_2018_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2018 CON PM10:
+tabla_pm10_2018<-left_join(mortalidad_18,ccaa_2018_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+#2019:
+ccaa_2019_pm10<-
+  ccaa_2019_pm10 %>%
+  arrange(CCAA, `Measurement Year`)
+
+#TABLA FINAL 2019 CON PM10:
+tabla_pm10_2019<-left_join(mortalidad_19,ccaa_2019_pm10, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
+  filter(!is.na(CCAA)) %>% 
+  mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
