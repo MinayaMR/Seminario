@@ -1,6 +1,6 @@
 ---
 title: "Seminario:Calidad del Aire y Defunciones por Enfermedades Respiratorias"
-author: "Aya Toussi,"
+author: "Aya Toussi, Minaya Moreno Romero y Vanessa Pérez Paredes "
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -15,16 +15,14 @@ htmltools::img(src = knitr::image_uri("Escudo Color TC.png"),
 
 
 ## INTRODUCCIÓN:
+En este seminario se ha recopilado informacion y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de españa y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relacion existente entre la calidad del aire y la mencionada tasa de mortalidad.
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## OBJETIVO GENERAL:
+Los objetivos generales de este seminario han sido:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-### OBJETIVO GENERAL:
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- El estudio de la evolución de las defunciones por comunidades autónomas a lo largo de los años.
+- El estudio de la calidad del aire según la concentración de gases obtenida en cada comunidad autónoma y como cambia a lo largo de los años.
+- Objetivo principal: Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
 
 ## METODOLOGIA :
 
