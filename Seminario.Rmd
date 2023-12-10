@@ -15,7 +15,7 @@ htmltools::img(src = knitr::image_uri("Escudo Color TC.png"),
 
 
 ## INTRODUCCIÓN:
-En este seminario se ha recopilado informacion y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de españa y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relacion existente entre la calidad del aire y la mencionada tasa de mortalidad.
+En este seminario se ha recopilado informacion y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
 
 ## OBJETIVO GENERAL:
 Los objetivos generales de este seminario han sido:
