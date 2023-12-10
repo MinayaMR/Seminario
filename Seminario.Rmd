@@ -19,25 +19,27 @@ htmltools::img(src = knitr::image_uri("Escudo Color TC.png"),
 ```
 
 
-## INTRODUCCIÓN:
-En este seminario se ha recopilado informacion y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones. Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
+## **INTRODUCCIÓN:**
+En este seminario se ha recopilado información y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones.
 
-## OBJETIVO GENERAL:
+Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
+
+## **OBJETIVO GENERAL:**
 Los objetivos generales de este seminario han sido:
 
 - El estudio de la evolución de las defunciones por comunidades autónomas a lo largo de los años.
 - El estudio de la calidad del aire según la concentración de gases obtenida en cada comunidad autónoma y como cambia a lo largo de los años.
-- Objetivo principal: Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
+- **Objetivo principal:** Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
 
-## METODOLOGIA :
-
-
+## **METODOLOGíA :**
 
 
-### CARGA DE PAQUETES:
+
+
+###  CARGA DE PAQUETES:
 
 ```{r,message=FALSE,warning=FALSE}
-#paquetes a instalar
+#PAQUETES A INSTALAR:
 library(ggplot2)
 library(rjson)
 library(readxl)
@@ -47,10 +49,10 @@ library(readr)
 ```
 
 
-## Slide with Plot
+## 
 
-```{r pressure,echo=TRUE}
-plot(pressure)
+```{r, message=FALSE,warning=FALSE}
+
 ```
 
 
