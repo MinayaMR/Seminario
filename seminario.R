@@ -3596,12 +3596,13 @@ pm2.5_mortalidad_completo$Year<-as.factor(pm2.5_mortalidad_completo$Year)
 pm2.5_mortalidad_completo_final <- pm2.5_mortalidad_completo %>%
   mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
 
-grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =Year)) +
+grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
   geom_bar(stat="identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  geom_line(aes(y=`PM2.5 (μg/m3)`))+
-  theme_classic()
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
+  
+  
+
 
 
 
