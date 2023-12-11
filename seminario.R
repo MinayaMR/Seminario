@@ -3596,9 +3596,11 @@ pm2.5_mortalidad_completo$Year<-as.factor(pm2.5_mortalidad_completo$Year)
 pm2.5_mortalidad_completo_final <- pm2.5_mortalidad_completo %>%
   mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
 
-grafico_combinado_pm2.5 <- ggplot(pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill = Year)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_point(aes(y = `PM2.5 (μg/m3)`), color = "red", position = position_nudge(x = 0.2)) +
+grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =Year)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  geom_line(aes(y=`PM2.5 (μg/m3)`))+
+  theme_classic()
   labs(title = "IDM y PM2.5 por CCAA y Year",
        x = "CCAA",
        y = "IDM",
