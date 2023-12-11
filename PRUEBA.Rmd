@@ -14,6 +14,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 ## **INTRODUCCIÓN:**
 En este seminario se ha recopilado información y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones.
 
@@ -46,6 +47,19 @@ Para ello,se han utilizado varias fuentes de datos (Datos Abiertos de España,MI
 - Obtener un tibble (dataframe) filtrado que contenga los datos de Concentración de los tres Contaminantes para cada año,y para cada contaminante (separados y juntos).
 - Combinar los tibbles obtenidos (dataframes) de la Tasa de Mortalidad con su correspondiente para la Concentración de los Contaminantes,y graficar la relación entre ambos. 
 
+## CARGA DE PAQUETES:
+```{r,message=FALSE,warning=FALSE}
+#PAQUETES A INSTALAR:
+library(ggplot2)
+library(rjson)
+library(readxl)
+library(tidyverse)
+library(jsonlite)
+library(readr)
+library(dplyr)
+library(readODS)
+library(tidyr)
+```
 
 
 
