@@ -96,17 +96,7 @@ asturias_data<-
   select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
   rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
-#DATOS LIMPIADOS PARA BALEARES
-baleares_data<-
-  defunciones_baleares %>%
-  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
-  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
-#DATOS LIMPIADOS PARA CANARIAS
-canarias_data<-
-  defunciones_canarias %>% 
-  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
-  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
 
 #DATOS LIMPIADOS PARA CANTABRIA
 cantabria_data<-
@@ -211,11 +201,7 @@ asturias_rec<-
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
 
-#tabla canarias sin separador de miles:
 
-canarias_rec<-
-  canarias_data %>% 
-  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
 
 #tabla cataluña sin separador de miles:
 cat_rec<-
@@ -269,21 +255,7 @@ total_defunciones_CCAA<-
   arrange(.data=.,desc(IDM))
 
 #POR AÑOS:
-#2007:
-mortalidad_07<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2007) %>% 
-  arrange(.data=.,desc(IDM)) %>% 
-  mutate(.data=.,IDM_nacional=sum(IDM))
-#2008:
-mortalidad_08<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2008) %>% 
-  arrange(.data=.,desc(IDM)) %>% 
-  mutate(.data=.,IDM_nacional=sum(IDM))
-#2009:
-mortalidad_09<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2009) %>% 
-  arrange(.data=.,desc(IDM)) %>% 
-  mutate(.data=.,IDM_nacional=sum(IDM))
+
 #2010:
 mortalidad_10<-total_defunciones_CCAA %>% 
   filter(.data=.,Year==2010) %>% 
@@ -339,31 +311,12 @@ mortalidad_19<-total_defunciones_CCAA %>%
   arrange(.data=.,desc(IDM)) %>% 
   mutate(.data=.,IDM_nacional=sum(IDM))
 
-#2020:
-mortalidad_20<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2020) %>% 
-  arrange(.data=.,desc(IDM)) %>% 
-  mutate(.data=.,IDM_nacional=sum(IDM))
-#2021:
-mortalidad_21<-total_defunciones_CCAA %>% 
-  filter(.data=.,Year==2021) %>% 
-  arrange(.data=.,desc(IDM)) %>% 
-  mutate(.data=.,IDM_nacional=sum(IDM))
+
 
 
 #CCAA POR AÑOS:
 #DEFUNCIONES ANDALUCIA:
-#2007:
-andalucia_def_2007<-
-  andalucia_rec %>% filter(.data=.,Year==2007)
 
-#2008:
-andalucia_def_2008<-
-  andalucia_rec %>% filter(.data=.,Year==2008)
-
-#2009:
-andalucia_def_2009<-
-  andalucia_rec %>% filter(.data=.,Year==2009)
 
 #2010:
 andalucia_def_2010<-
@@ -416,29 +369,8 @@ andalucia_def_2021<-
 
 #GRÁFICOS POR AÑOS :
 
-graph_2007<-ggplot(data=mortalidad_07, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-  geom_bar(stat = "identity",color="black", position = "dodge") +
-  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2007",
-       x = "Año",
-       y = "Índice de Mortalidad",
-       fill = "CCAA") +
-  theme_classic()
 
-graph_2008<- ggplot(data=mortalidad_08, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-  geom_bar(stat = "identity",color="black", position = "dodge") +
-  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2008",
-       x = "Año",
-       y = "Índice de Mortalidad",
-       fill = "CCAA") +
-  theme_classic()
 
-graph_2009<-ggplot(data=mortalidad_09, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-  geom_bar(stat = "identity",color="black", position = "dodge") +
-  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2009",
-       x = "Año",
-       y = "Índice de Mortalidad",
-       fill = "CCAA") +
-  theme_classic()
 
 graph_2010<-ggplot(data=mortalidad_10, aes(x = factor(Year), y = IDM, fill = CCAA)) +
   geom_bar(stat = "identity",color="black", position = "dodge") +
@@ -531,24 +463,7 @@ graph_2019<-
        fill = "CCAA") +
   theme_classic()
 
-graph_2020<-
-  ggplot(data=mortalidad_20, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-  geom_bar(stat = "identity", color="black",position = "dodge") +
-  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2020",
-       x = "Año",
-       y = "Índice de Mortalidad",
-       fill = "CCAA") +
-  theme_classic()
 
-
-graph_2021<-
-  ggplot(data=mortalidad_21, aes(x = factor(Year), y = IDM, fill = CCAA)) +
-  geom_bar(stat = "identity", color="black",position = "dodge") +
-  labs(title = "Comparación de Índice de Mortalidad por CCAA en 2021",
-       x = "Año",
-       y = "Índice de Mortalidad",
-       fill = "CCAA") +
-  theme_classic()
 #Modificar los nombres de las CCAA para que sean mas manejables a la hora de trabajar con los gráficos:
 #Se cambian los nombres de las CCAA de nuestra tabla con un case when ,se añade otra columna con el promedio de IDM por CCAA a ,lo largo de los años representados:
 
