@@ -3544,5 +3544,42 @@ tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA"
 
 #tabla no2 todos los años y mortalidad
 no2_mortalidad_completo<-
-  bind_rows(tabla_no2_2010, tabla_no2_2011, tabla_no2_2013, tabla_no2_2014, tabla_no2_2015, tabla_no2_2016, tabla_no2_2017, tabla_no2_2018, tabla_no2_2019 )
-view(no2_mortalidad_completo)
+  bind_rows(tabla_no2_2010, tabla_no2_2013, tabla_no2_2012, tabla_no2_2014, tabla_no2_2015, tabla_no2_2016, tabla_no2_2017, tabla_no2_2018, tabla_no2_2019 ) %>% 
+  select(CCAA:`NO2 (μg/m3)`)
+
+no2_mortalidad_completo$Year<-as.factor(no2_mortalidad_completo$Year)
+
+no2_mortalidad_completo_final <- no2_mortalidad_completo %>%
+  mutate(`NO2 (μg/m3)` = replace(`NO2 (μg/m3)`, is.na(`NO2 (μg/m3)`), 0)) 
+
+
+grafico_combinado <- ggplot(no2_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill = Year)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_point(aes(y = `NO2 (μg/m3)`), color = "red", position = position_nudge(x = 0.2)) +
+  labs(title = "IDM y No2 por CCAA y Year",
+       x = "CCAA",
+       y = "IDM",
+       fill = "Year") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
+
+#tabla pm10 todos los años y mortalidad
+pm10_mortalidad_completo<-
+  bind_rows(tabla_pm10_2010, tabla_pm10_2011, tabla_pm10_2012, tabla_pm10_2013, tabla_pm10_2013,  tabla_pm10_2014,  tabla_pm10_2015,  tabla_pm10_2016, tabla_pm10_2017,tabla_pm10_2018,tabla_pm10_2019) %>% 
+  select(CCAA:`PM10 (μg/m3)`)
+
+pm10_mortalidad_completo_final <- pm10_mortalidad_completo %>%
+  mutate(`PM10 (μg/m3)` = replace(`PM10 (μg/m3)`, is.na(`PM10 (μg/m3)`), 0)) 
+
+#tabla pm2.5 todos los años y mortalidad
+pm2.5_mortalidad_completo<-
+  bind_rows(tabla_pm25_2010, tabla_pm25_2011, tabla_pm25_2013, tabla_pm25_2014, tabla_pm25_2015, tabla_pm25_2016, tabla_pm25_2017, tabla_pm25_2018, tabla_pm25_2019 ) %>% 
+  select(CCAA:`PM2.5 (μg/m3)`)
+
+pm2.5_mortalidad_completo_final <- pm2.5_mortalidad_completo %>%
+  mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
+
+
+
