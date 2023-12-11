@@ -3509,7 +3509,7 @@ tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA"
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
-grafico_combinado_no2 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
+grafico_combinado_no2 <- ggplot(data=no2_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
