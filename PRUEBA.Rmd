@@ -61,7 +61,249 @@ library(readODS)
 library(tidyr)
 ```
 
+```{r, message = FALSE, echo=FALSE}
+#CARGA DE DATOS DE DEFUNCIONES DE LAS CCAA QUE EMPIEZAN POR [A,B,C]:
 
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN ANDALUCÍA DEL 2007 AL 2021:(NO SE ENCUJENTRAN DATOS JSON):(https://www.ine.es/consul/serie.do?d=true&s=ECM25824)
+
+defunciones_andalucia<- read_delim("DATOS/series-616844354sc_andalucia.csv", 
+                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN ARAGÓN DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25823 )
+defunciones_aragon<- read_delim("DATOS/series-569481116sc_aragon.csv", 
+                                delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EL PRINCIPADO DE ASTURIAS DEL 2007 AL 2021:( https://www.ine.es/consul/serie.do?d=true&s=ECM25822 )
+defunciones_asturias <- read_delim("DATOS/series-1904166149sc_asturias.csv", 
+                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+#DATOS DE DEFUNCIONES POR ENFERMEMEDADES RESPIRATORIAS EN CANTABRIA DEL 2007 AL 2021:(https://www.ine.es/consuserie.do?d=true&s=ECM25819)
+defunciones_cantabria<- read_delim("DATOS/series771112492sc_cantabria.csv", 
+                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN CASTILLA Y LEON DEL 2007 AL 2021: (https://www.ine.es/consul/serie.do?d=true&s=ECM25818)
+defunciones_cyl<-read_delim("DATOS/series702246534sc_cyl.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN CASTILLA LA MANCHA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25817)
+defunciones_clm<-read_delim("DATOS/series-915120596sc_clm.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN CATALUÑA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25816 )
+defunciones_cat<-read_delim("DATOS/series-1419254191sc_cat.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD VALENCIANA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25815 )
+defunciones_vlc<-read_delim("DATOS/series-869225815sc_vlc.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EXTREMADURA DEL 2007 AL 2021:( https://www.ine.es/consul/serie.do?d=true&s=ECM25814)
+defunciones_extremadura<-read_delim("DATOS/series-1186384838t_extremadura.csv", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN GALICIA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25813)
+defunciones_gal<-read_delim("DATOS/series386793258sc_gal.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD DE MADRID DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25812 )
+defunciones_mad<- read_delim("DATOS/series119180366sc_mad.csv", 
+                             delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA REGIÓN DE MURCIA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25811)
+defunciones_mrc<-read_delim("DATOS/series-1650015035sc_murcia.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA COMUNIDAD FORAL DE NAVARRA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25810)
+defunciones_nvr<-read_delim("DATOS/series-1724737377sc_nvr.csv", 
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#DATOS DE DEFEUNCIONES POR ENFERMEDADES RESPIRATORIAS EN EL PAÍS VASCO DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25809)
+defunciones_euskadi<- read_delim("DATOS/series137774152sc_euskadi.csv", 
+                                  delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+#DATOS DE DEFUNCIONES POR ENFERMEDADES RESPIRATORIAS EN LA RIOJA DEL 2007 AL 2021:(https://www.ine.es/consul/serie.do?d=true&s=ECM25808)
+defunciones_rioja<-read_delim("DATOS/series-573723813sc_rioja.csv", 
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+  
+  
+#HASTA AQUI SE HAN CARGADO TODOS LOS DATOS DE DEFUNCIONES EN FORMATO CSV POR ENF.RESP EN TODAS LAS CCAA DE ESPAÑA SALVO LAS 2 CUIDADES AUTÓNOMAS DE CEUTA Y MELILLA
+#TRATAMIENTO DE LAS TABLAS Y GRÁFICAS:
+andalucia_data<-
+  defunciones_andalucia %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+andalucia_data
+#DATOS LIMPIADOS PARA ARÁGON:
+aragon_data<-
+  defunciones_aragon %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA ASTURIAS:
+asturias_data<-
+  defunciones_asturias %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
+
+#DATOS LIMPIADOS PARA CANTABRIA
+cantabria_data<-
+  defunciones_cantabria %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CATALUÑA
+cat_data<-
+  defunciones_cat %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CASTILLA LA MANCHA
+clm_data<-
+  defunciones_clm %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CYL
+cyl_data<-
+  defunciones_cyl %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA PAÍS VASCO
+euskadi_data<-
+  defunciones_euskadi %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS EXTREMADURA
+extremadura_data<-
+  defunciones_extremadura %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS GALICIA
+gal_data<-
+  defunciones_gal %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS MADRID
+mad_data<-
+  defunciones_mad %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS REGION DE MURCIA
+mrc_data<-
+  defunciones_mrc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
+#DATOS LIMPIADOS NAVARRA:
+nvr_data<-
+  defunciones_nvr %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS RIOJA
+rioja_data<-
+  defunciones_rioja %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS C.VALENCIANA
+
+vlc_datos<-
+  defunciones_vlc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#HASTA AQUI SE HAN LIMPIADO TODAS LAS TABLAS DE DEFUNCIONES QUE VIENEN PARA CADA CCAA EXCEPTO LAS 2 CUIDADES AUTONOMAS DE CEUTA Y MELILLA
+
+#SE VAN A JUNTAR TODAS LA TABLAS (UNION)  DE DEFUNCIONES PARA TODAS LAS CCAA PARA MOSTRARLAS EN UN UNICA TABLA:
+#SE DEBEN REVISAR LOS DATOS PARA QUITAR LOS SEPARADORES DE MILES DE LOS MILES PORQUE CREARAN PROBLEMAS A LA HORA DE JUNTARLOS 
+#PARA QUE LOS DATOS SEAN COHERENTES,TENEMOS QUE CAMBIAR LOS DATOS QUE VIENEN SEPARADOS POR PUNTOS,LO CONSIDERAREMOS COMO MILES Y NO COMO INDICES COMO NO TENEMOS INDICADORES DEL CONTRARIO:
+
+vlc_rec<-
+  vlc_datos %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla andalucia sin separador de miles:
+
+andalucia_rec<-
+  andalucia_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla aragon sin separador de miles:
+
+aragon_rec<-
+  aragon_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla asturias sin separador de miles
+
+asturias_rec<-
+  asturias_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+
+
+#tabla cataluña sin separador de miles:
+cat_rec<-
+  cat_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla la mancha sin separador de miles:
+clm_rec<-
+  clm_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla cyl sin separador de miles:
+cyl_rec<-
+  cyl_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla euskadi sin separador de miles:
+euskadi_rec<-
+  euskadi_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+#tabla extremadura sin separador de miles:
+extremadura_rec<-
+  extremadura_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+#tabla galicia sin separador de miles:
+gal_rec<-
+  gal_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla madrid sin separador de miles:
+
+mad_rec<-
+  mad_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#tabla murcia sin separador de miles:
+
+mrc_rec<-
+  mrc_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+#FIN DE RECTIFICACION DE LAS TABLAS DE DEFUNCIONES  (ELIMINACION DE SEPARADOR DE MILES POR LAS TABLAS QUE LAS CONTENGAN) :
+
+#LA TABLA SIGUIENTE CONTIENE TODOS LOS DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021:(UNION DE LAS TABLAS):
+total_defunciones_CCAA<-
+  rbind(andalucia_rec,aragon_rec,asturias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) %>% 
+  arrange(.data=.,desc(IDM))
+
+knitr::kable(total_defunciones_CCAA)
+```
 
 ```{r, echo=FALSE}
 htmltools::img(src = knitr::image_uri("Escudo Color TC.png"), 
