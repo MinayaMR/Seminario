@@ -2870,9 +2870,61 @@ grafica_pm10<-
        fill = "CCAA") +
   theme_classic()
 
+#grafica pm2.5
+
+valores_1<-
+  tibble(CCAA = "Asturias",
+         `Measurement Year` = 2011,
+         `PM2.5 (μg/m3)` = 0)
+valores_2<-
+  tibble(CCAA = "Euskadi",
+         `Measurement Year` = 2011,
+         `PM2.5 (μg/m3)` = 0)
+valores_3<-
+  tibble(CCAA = "Extremadura",
+         `Measurement Year` = 2011,
+         `PM2.5 (μg/m3)` = 0)
+valores_5<-
+  tibble(CCAA = "Galicia",
+         `Measurement Year` = 2011,
+         `PM2.5 (μg/m3)` = 0)
+valores_6<-
+  tibble(CCAA = "Murcia",
+         `Measurement Year` = 2011,
+         `PM2.5 (μg/m3)` = 0)
+valores_7<-
+  tibble(CCAA = "Murcia",
+         `Measurement Year` = 2012,
+         `PM2.5 (μg/m3)` = 0)
+
+ccaa_2011_total_pm2.5<-bind_rows(ccaa_2011_pm2.5, valores_1, valores_2, valores_3, valores_5, valores_6)
+ccaa_2012_total_pm2.5<-bind_rows(ccaa_2012_pm2.5, valores_7)
 
 
+#ccaa_2012_total_pm2.5$`PM2.5 (μg/m3)`[1]<-0
 
+total_años_pm2.5<-
+  bind_rows(ccaa_2010_pm2.5,ccaa_2011_total_pm2.5, ccaa_2012_total_pm2.5, ccaa_2013_pm2.5, ccaa_2014_pm2.5, ccaa_2015_pm2.5, ccaa_2016_pm2.5, ccaa_2017_pm2.5, ccaa_2018_pm2.5, ccaa_2019_pm2.5)
+
+total_años_pm2.5$`Measurement Year`<-as.factor(total_años_pm2.5$`Measurement Year`)
+
+
+total_años_pm2.5 <- total_años_pm2.5 %>%
+  mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
+
+options(scipen = 999)
+
+total_años_pm2.5$`PM2.5 (μg/m3)`[16]<-0
+
+
+grafica_pm2.5<-
+  ggplot(total_años_pm2.5, aes(x = `Measurement Year`, y = `PM2.5 (μg/m3)`, fill = CCAA)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de pm2.5 por CCAA (2010-2019)",
+       x = "Año",
+       y = "Niveles de pm2.5 (μg/m3)",
+       fill = "CCAA") +
+  theme_classic()
 
 
 # Combinamos los datos de todos los años para NO2
