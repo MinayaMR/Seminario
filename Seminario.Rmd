@@ -69,10 +69,19 @@ library(tidyr)
 library(knitr)
 ```
 
+
+```{r,include=FALSE}
+source("seminario.R", local = knitr::knit_global())
+```
+
+
 ###DATOS DE DEFUNCIONES POR COMUNIDADES AUTONOMAS DESDE 2007 A 2021
 ##DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021
 
 ```{r, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("seminario.R")
+
 vlc_rec<-
   vlc_datos %>%
   mutate(IDM=as.numeric(gsub("\\.","",IDM)))
