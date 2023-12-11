@@ -46,6 +46,10 @@ Los objetivos generales de este seminario han sido:
 Para ello,se han utilizado varias fuentes de datos (Datos Abiertos de España,MITECO,y algunas fuentes y herramientas autonómicas y gubernamentales) [ Datos Abiertos de España](https://datos.gob.es/es/),[MITECO](https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire/calidad-del-aire/evaluacion-datos/redes.html)
 - Se procede con lo mismo con las tablas complementarias:limpieza,,cambio de medidas,cambio de sintáxis,selección y filtrado de los datos.
 
+### Metodología del Objetivo General:
+- Obtener un tibble (dataframe) filtrado que contenga los datos de la tasa de Mortalidad a nivel de cada Comunidad Autónoma para cada año.
+- Obtener un tibble (dataframe) filtrado que contenga los datos de Concentración de los tres Contaminantes para cada año,y para cada contaminante (separados y juntos).
+- Combinar los tibbles obtenidos (dataframes) de la Tasa de Mortalidad con su correspondiente para la Concentración de los Contaminantes,y graficar la relación entre ambos. 
 
 
 

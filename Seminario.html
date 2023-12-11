@@ -420,12 +420,28 @@ unas tablas representadas por Comunidades Autónomas.</li>
 Autónoma.</li>
 <li>Representar los datos de cada Comunidad Autónoma a lo largo de los
 años (Del 2010 al 2019).</li>
-<li>Se han buscado otras tablas complementarias (por falta y escasez de
-datos por años y por contaminantes) para incluirlas en el análisis. Para
-ello,se han utilizado varias fuentes de datos (Datos Abiertos de
-España,MITECO,y algunas fuentes y herramientas autonómicas y
-gubernamentales) <a href="https://datos.gob.es/es/">Datos Abiertos de
-España</a>,<a href="https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire/calidad-del-aire/evaluacion-datos/redes.html">MITECO</a></li>
+<li>Se han buscado otras tablas en distintos formatos(.csv, .xlsx/xls,
+.ods ) complementarias (por falta y escasez de datos por años y por
+contaminantes) para incluirlas en el análisis. Para ello,se han
+utilizado varias fuentes de datos (Datos Abiertos de España,MITECO,y
+algunas fuentes y herramientas autonómicas y gubernamentales) <a href="https://datos.gob.es/es/">Datos Abiertos de España</a>,<a href="https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire/calidad-del-aire/evaluacion-datos/redes.html">MITECO</a></li>
+<li>Se procede con lo mismo con las tablas
+complementarias:limpieza,,cambio de medidas,cambio de sintáxis,selección
+y filtrado de los datos.</li>
+</ul>
+</div>
+<div id="metodología-del-objetivo-general" class="section level3">
+<h3>Metodología del Objetivo General:</h3>
+<ul>
+<li>Obtener un tibble (dataframe) filtrado que contenga los datos de la
+tasa de Mortalidad a nivel de cada Comunidad Autónoma para cada
+año.</li>
+<li>Obtener un tibble (dataframe) filtrado que contenga los datos de
+Concentración de los tres Contaminantes para cada año,y para cada
+contaminante (separados y juntos).</li>
+<li>Combinar los tibbles obtenidos (dataframes) de la Tasa de Mortalidad
+con su correspondiente para la Concentración de los Contaminantes,y
+graficar la relación entre ambos.</li>
 </ul>
 </div>
 <div id="carga-de-paquetes" class="section level3">
