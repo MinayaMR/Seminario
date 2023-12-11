@@ -2806,6 +2806,9 @@ ccaa_2019_pm10<-ccaa_2019_calidad %>%
   arrange(.data=., desc(`PM10 (μg/m3)`))
 
 
+
+#GAFICOS GASES
+
 #GRAFICA PARA NO2
 total_años_no2<-
   bind_rows(ccaa_2010_no2, ccaa_2013_no2, ccaa_2014_no2, ccaa_2015_no2, ccaa_2016_no2, ccaa_2017_no2, ccaa_2018_no2, ccaa_2019_no2)
@@ -2974,37 +2977,6 @@ ccaa_pm2.5_combined <- bind_rows(
 
 
 
-#graficas por años y diferentes gases
-
-# Gráfico para NO2
-graph_NO2<-
-  ggplot(data=ccaa_no2_combined, aes(x = reorder(CCAA, `NO2 (μg/m3)`), y = `NO2 (μg/m3)`, fill = as.factor(Year))) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Niveles de NO2 a Nivel Nacional (2010-2019)",
-       x = "Comunidad Autónoma",
-       y = "Niveles de NO2 (μg/m3)",
-       fill = "Año") +
-  theme_classic()
-
-# Gráfico para PM10
-graph_PM10<-
-  ggplot(ccaa_pm10_combined, aes(x = reorder(CCAA, `PM10 (μg/m3)`), y = `PM10 (μg/m3)`, fill = as.factor(Year))) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Niveles de PM10 a Nivel Nacional (2010-2019)",
-       x = "Comunidad Autónoma",
-       y = "Niveles de PM10 (μg/m3)",
-       fill = "Año") +
-  theme_classic()
-
-# Gráfico para PM2.5
-graph_PM2.5<-
-  ggplot(ccaa_pm2.5_combined, aes(x = reorder(CCAA, `PM2.5 (μg/m3)`), y = `PM2.5 (μg/m3)`, fill = as.factor(Year))) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Niveles de PM2.5 a Nivel Nacional (2010-2019)",
-       x = "Comunidad Autónoma",
-       y = "Niveles de PM2.5 (μg/m3)",
-       fill = "Año") +
-  theme_classic()
 
 
 #LA PARTE DE ANALISIS Y CONCLUSION:JOIN DE TABLAS DE AMBOS:DEFUNCIONES Y CALIDAD DEL AIRE:
