@@ -2817,13 +2817,12 @@ total_años_no2$`Measurement Year`<-as.factor(total_años_no2$`Measurement Year`
 
 grafica_NO2<-
   ggplot(data=total_años_no2, aes(x = `Measurement Year`, y =`NO2 (μg/m3)`, fill = CCAA)) +
-  geom_bar(stat = "identity", position = "dodge",color="black") +
+  geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Niveles de NO2 por CCAA (2010-2019)",
        x = "Año",
        y = "Niveles de NO2 (μg/m3)",
        fill = "CCAA") +
   theme_classic()
-ggsave("Niveles de NO2 por CCAA(2010-2019).png", plot = grafica_NO2, width = 10, height = 6, units = "in")
 
 #GRAFICO PM10
 
@@ -2867,14 +2866,12 @@ total_años_pm10 <- total_años_pm10 %>%
   
 grafica_pm10<-
   ggplot(total_años_pm10, aes(x = `Measurement Year`, y = `PM10 (μg/m3)`, fill = CCAA)) +
-  geom_bar(stat = "identity", position = "dodge",color="black") +
-  labs(title = "Niveles de PM10 por CCAA (2010-2019)",
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de pm10 por CCAA (2010-2019)",
        x = "Año",
        y = "Niveles de pm10 (μg/m3)",
        fill = "CCAA") +
   theme_classic()
-
-ggsave("Niveles de PM10 por CCAA (2010-2019).png", plot = grafica_pm10, width = 10, height = 6, units = "in")
 
 #grafica pm2.5
 
@@ -2926,13 +2923,13 @@ total_años_pm2.5$`PM2.5 (μg/m3)`[16]<-0
 
 grafica_pm2.5<-
   ggplot(total_años_pm2.5, aes(x = `Measurement Year`, y = `PM2.5 (μg/m3)`, fill = CCAA)) +
-  geom_bar(stat = "identity", position = "dodge",color="black") +
-  labs(title = "Niveles de PM2.5 por CCAA (2010-2019)",
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Niveles de pm2.5 por CCAA (2010-2019)",
        x = "Año",
        y = "Niveles de pm2.5 (μg/m3)",
        fill = "CCAA") +
   theme_classic()
-ggsave("Niveles de PM2.5 por CCAA (2010-2019).png", plot = grafica_pm2.5, width = 10, height = 6, units = "in")
+
 
 # Combinamos los datos de todos los años para NO2
 ccaa_no2_combined <- bind_rows(
@@ -3541,3 +3538,11 @@ ccaa_2019_no2 <-
 tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA", "Year" = "Measurement Year")) %>%
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
+
+
+
+
+#tabla no2 todos los años y mortalidad
+no2_mortalidad_completo<-
+  bind_rows(tabla_no2_2010, tabla_no2_2011, tabla_no2_2013, tabla_no2_2014, tabla_no2_2015, tabla_no2_2016, tabla_no2_2017, tabla_no2_2018, tabla_no2_2019 )
+view(no2_mortalidad_completo)
