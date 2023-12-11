@@ -2915,6 +2915,7 @@ total_años_pm2.5$`Measurement Year`<-as.factor(total_años_pm2.5$`Measurement Y
 total_años_pm2.5 <- total_años_pm2.5 %>%
   mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
 
+#cambiar los valores en  notacion cientifica a decimal
 options(scipen = 999)
 
 total_años_pm2.5$`PM2.5 (μg/m3)`[16]<-0
