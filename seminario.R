@@ -3601,12 +3601,7 @@ grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
   geom_line(aes(y=`PM2.5 (μg/m3)`))+
   theme_classic()
-  labs(title = "IDM y PM2.5 por CCAA y Year",
-       x = "CCAA",
-       y = "IDM",
-       fill = "Year") +
-  theme_minimal()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  
 
 
 
