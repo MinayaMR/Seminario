@@ -3539,6 +3539,11 @@ tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA"
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
+grafico_combinado_no2 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
 
 
 
@@ -3563,6 +3568,11 @@ grafico_combinado_no2<- ggplot(no2_mortalidad_completo_final, aes(x = CCAA, y = 
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+#grafico final sin años
+
+grafico_combinado_no2_final <- ggplot(data=no2_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`NO2 (μg/m3)`)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 
 #tabla pm10 todos los años y mortalidad
@@ -3585,6 +3595,11 @@ grafico_combinado_pm10<- ggplot(pm10_mortalidad_completo_final, aes(x = CCAA, y 
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+#grafico final sin años
+grafico_combinado_pm10_final <- ggplot(data=pm10_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM10 (μg/m3)`)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
 
 #tabla pm2.5 todos los años y mortalidad
 pm2.5_mortalidad_completo<-
@@ -3596,6 +3611,8 @@ pm2.5_mortalidad_completo$Year<-as.factor(pm2.5_mortalidad_completo$Year)
 pm2.5_mortalidad_completo_final <- pm2.5_mortalidad_completo %>%
   mutate(`PM2.5 (μg/m3)` = replace(`PM2.5 (μg/m3)`, is.na(`PM2.5 (μg/m3)`), 0)) 
 
+
+#grafico final sin años
 grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
