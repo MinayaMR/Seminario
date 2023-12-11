@@ -86,5 +86,21 @@ knitr::include_graphics("Niveles de NO2 por CCAA(2010-2019).png")
 ```
 
 
+### GRAFICO NO2 JUNTO DEFUNCIONES PARA TODAS LAS CCAA
+
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("grafico_combinado_no2.png")
+```
+
+### GRAFICO PM2.5 JUNTO DEFUNCIONES PARA TODAS LAS CCAA
+
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("grafico_combinado_pm2.5.png")
+```
 
 
+### GRAFICO PM10 JUNTO DEFUNCIONES PARA TODAS LAS CCAA
+
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("grafico_combinado_pm10.png")
+```
