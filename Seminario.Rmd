@@ -73,6 +73,59 @@ library(knitr)
 ##DATOS DE DEFUNCIONES PARA CADA CCAA EN EL PERIODO DE 2007 HASTA 2021
 
 ```{r, message=FALSE,warning=FALSE}
+vlc_rec<-
+  vlc_datos %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+andalucia_rec<-
+  andalucia_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+aragon_rec<-
+  aragon_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+asturias_rec<-
+  asturias_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+cat_rec<-
+  cat_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+clm_rec<-
+  clm_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+cyl_rec<-
+  cyl_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+euskadi_rec<-
+  euskadi_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+extremadura_rec<-
+  extremadura_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+gal_rec<-
+  gal_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+mad_rec<-
+  mad_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+mrc_rec<-
+  mrc_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
 total_defunciones_CCAA<-
   rbind(andalucia_rec,aragon_rec,asturias_rec,baleares_data,canarias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) %>% 
   arrange(.data=.,desc(IDM))
