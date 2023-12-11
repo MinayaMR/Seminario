@@ -3458,6 +3458,8 @@ grafico_combinado_no2 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CC
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+ggsave("")
+
 
 
 
@@ -3534,7 +3536,3 @@ grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = 
   
   
   
-
-
-
-
