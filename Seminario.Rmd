@@ -37,6 +37,14 @@ Los objetivos generales de este seminario han sido:
 - Filtrar y cargar los datos para cada Comunidad Autónoma,organizarlos por años y por Comunidades en dataframes para cada año del 2010 al 2019.
 - Representar la evolución de la tasa de Mortalidad obtenida en las diferentes Comunidades Autónomas para cada año en unas gráficas distintas del 2010 al 2019.
 
+### Metodologías del Segundo Objetivo General:
+- Se ha sacado la tabla principal en formato .xlsx de los datos de Calidad de Aire en España de la página oficial de la OMS [Enlace directo al recurso](https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database/2022). Viene representada por Provincias y incluye las medidas de 3 contaminantes .
+- Filtar la tabla principal para los datos que solo vienen por España,y luego agrupar los datos dados por Provincias para pasarlos a unas tablas representadas por Comunidades Autónomas.
+- Obtener las tablas filtradas y agrupadas por cada Comunidad Autónoma.
+- Representar los datos de cada Comunidad Autónoma a lo largo de los años (Del 2010 al 2019).
+- Se han buscado otras tablas complementarias (por falta y escasez de datos por años y por contaminantes) para incluirlas en el análisis.
+Para ello,se han utilizado varias fuentes de datos (Datos Abiertos de España,MITECO,y algunas fuentes y herramientas autonómicas y gubernamentales) [ Datos Abiertos de España](https://datos.gob.es/es/),[MITECO](https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire/calidad-del-aire/evaluacion-datos/redes.html)
+
 
 
 
