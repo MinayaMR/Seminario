@@ -1,0 +1,76 @@
+---
+title: "Seminario:Calidad del Aire y Defunciones por Enfermedades Respiratorias"
+subtitle: " Repositorio: [GitHub](https://github.com/MinayaMR/Seminario)"
+author:
+- name: "Aya Toussi"
+- name: " Minaya Moreno Romero"
+- name: "Vanessa Pérez Paredes"
+
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **INTRODUCCIÓN:**
+En este seminario se ha recopilado información y llevado a cabo un análisis sobre la calidad del aire en las diferentes comunidades autónomas de España Peninsular y la tasa de muertes por enfermedades respiratorias a lo largo de varios años en dichas regiones.
+
+Finalmente se ha explorado la relación existente entre la calidad del aire y la mencionada tasa de mortalidad.
+
+## **OBJETIVO GENERAL:**
+Los objetivos generales de este seminario han sido:
+
+- El estudio de la evolución de las defunciones por comunidades autónomas a lo largo de los años.
+- El estudio de la calidad del aire según la concentración de gases obtenida en cada comunidad autónoma y como cambia a lo largo de los años.
+- **Objetivo principal:** Analizar y examinar ambos sets de datos y determinar si existe una relación directa entre la calidad del aire que respire la población de cada comunidad autónoma y su tasa de defunción por enfermedades respiratorias.
+
+## **METODOLOGíA :**
+### Metodologías del Primer Objetivo General:
+- Descargar los archivos en formato .csv que contienen las informaciones de defunciones anuales por Enfermedades Respiratorias para cada Comunidad Autónoma de España Peninsular desde 2010 a 2019. Estas tablas se han obtenido en totalidad a través de la página oficial del INEbase que es el sistema utilizado por el INE (Instituto Nacional de Estadística) para el almacenamiento de la información estadística en Internet. [Enlace directo al recurso utilizado para descargar los archivos](https://www.ine.es/jaxiT3/Tabla.htm?t=10803&L=0)
+- Filtrar y cargar los datos para cada Comunidad Autónoma,organizarlos por años y por Comunidades en dataframes para cada año del 2010 al 2019.
+- Representar la evolución de la tasa de Mortalidad obtenida en las diferentes Comunidades Autónomas para cada año en unas gráficas distintas del 2010 al 2019.
+
+### Metodologías del Segundo Objetivo General:
+- Se ha sacado la tabla principal en formato .xlsx de los datos de Calidad de Aire en España de la página oficial de la OMS [Enlace directo al recurso](https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database/2022). Viene representada por Provincias y incluye las medidas de 3 contaminantes .
+- Filtar la tabla principal para los datos que solo vienen por España,y luego agrupar los datos dados por Provincias para pasarlos a unas tablas representadas por Comunidades Autónomas.
+- Obtener las tablas filtradas y agrupadas por cada Comunidad Autónoma.
+- Representar los datos de cada Comunidad Autónoma a lo largo de los años (Del 2010 al 2019).
+- Se han buscado otras tablas en distintos formatos(.csv, .xlsx/xls, .ods ) complementarias (por falta y escasez de datos por años y por contaminantes) para incluirlas en el análisis.
+Para ello,se han utilizado varias fuentes de datos (Datos Abiertos de España,MITECO,y algunas fuentes y herramientas autonómicas y gubernamentales) [ Datos Abiertos de España](https://datos.gob.es/es/),[MITECO](https://www.miteco.gob.es/es/calidad-y-evaluacion-ambiental/temas/atmosfera-y-calidad-del-aire/calidad-del-aire/evaluacion-datos/redes.html)
+- Se procede con lo mismo con las tablas complementarias:limpieza,,cambio de medidas,cambio de sintáxis,selección y filtrado de los datos.
+
+### Metodología del Objetivo General:
+- Obtener un tibble (dataframe) filtrado que contenga los datos de la tasa de Mortalidad a nivel de cada Comunidad Autónoma para cada año.
+- Obtener un tibble (dataframe) filtrado que contenga los datos de Concentración de los tres Contaminantes para cada año,y para cada contaminante (separados y juntos).
+- Combinar los tibbles obtenidos (dataframes) de la Tasa de Mortalidad con su correspondiente para la Concentración de los Contaminantes,y graficar la relación entre ambos. 
+
+
+
+
+```{r, echo=FALSE}
+htmltools::img(src = knitr::image_uri("Escudo Color TC.png"), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; left:0; padding:10px; width:100px; height:100px;')
+```
+
+## RELACIONES Y CONCLUSIONES:
+### NIVELES DE PM10 POR CCAA A LO LARGO DE LOS AÑOS:
+```{r , echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("Niveles de PM10 por CCAA (2010-2019).png")
+```
+
+### NIVELES DE PM2.5 POR CCAA A LO LARGO DE LOS AÑOS:
+```{r , echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("Niveles de PM2.5 por CCAA (2010-2019).png")
+```
+
+### NIVELES DE NO2 POR CCAA A LO LARGO DE LOS AÑOS:
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("Niveles de NO2 por CCAA(2010-2019).png")
+```
+
+
+
+

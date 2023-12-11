@@ -3509,7 +3509,7 @@ tabla_no2_2019 <- left_join(mortalidad_19, ccaa_2019_no2, by = c("CCAA" = "CCAA"
   filter(!is.na(CCAA)) %>% 
   mutate(across(everything(), ~ifelse(is.nan(.), NA_real_, .)))
 
-grafico_combinado_no2 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
+grafico_combinado_no2 <- ggplot(data=no2_mortalidad_completo_final, aes(x = CCAA, y = IDM, fill =`PM2.5 (μg/m3)`)) +
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
@@ -3575,9 +3575,164 @@ grafico_combinado_pm2.5 <- ggplot(data=pm2.5_mortalidad_completo_final, aes(x = 
 
 ```
 
+
+```{r,include=FALSE}
+source("seminario.R", local = knitr::knit_global())
+```
+
+
 ###DATOS DE DEFUNCIONES POR COMUNIDADES AUTONOMAS DESDE 2007 A 2021
 ```{r}
 
+<<<<<<< HEAD
+=======
+andalucia_data
+#DATOS LIMPIADOS PARA ARÁGON:
+aragon_data<-
+  defunciones_aragon %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA ASTURIAS:
+asturias_data<-
+  defunciones_asturias %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
+
+#DATOS LIMPIADOS PARA CANTABRIA
+cantabria_data<-
+  defunciones_cantabria %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CATALUÑA
+cat_data<-
+  defunciones_cat %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CASTILLA LA MANCHA
+clm_data<-
+  defunciones_clm %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA CYL
+cyl_data<-
+  defunciones_cyl %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS PARA PAÍS VASCO
+euskadi_data<-
+  defunciones_euskadi %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS EXTREMADURA
+extremadura_data<-
+  defunciones_extremadura %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS GALICIA
+gal_data<-
+  defunciones_gal %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS MADRID
+mad_data<-
+  defunciones_mad %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS REGION DE MURCIA
+mrc_data<-
+  defunciones_mrc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+
+#DATOS LIMPIADOS NAVARRA:
+nvr_data<-
+  defunciones_nvr %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS RIOJA
+rioja_data<-
+  defunciones_rioja %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+
+#DATOS LIMPIADOS C.VALENCIANA
+
+vlc_datos<-
+  defunciones_vlc %>% 
+  select(.data=.,Valor3,Valor5,PERIODO,VALOR) %>% 
+  rename(.data=.,CCAA=Valor3,CausadeMuerte=Valor5,Year=PERIODO,IDM=VALOR)
+```
+
+```{r, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("seminario.R")
+
+vlc_rec<-
+  vlc_datos %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+andalucia_rec<-
+  andalucia_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+aragon_rec<-
+  aragon_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+asturias_rec<-
+  asturias_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+cat_rec<-
+  cat_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+clm_rec<-
+  clm_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+cyl_rec<-
+  cyl_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+euskadi_rec<-
+  euskadi_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+
+extremadura_rec<-
+  extremadura_data %>% 
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+gal_rec<-
+  gal_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+mad_rec<-
+  mad_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+
+mrc_rec<-
+  mrc_data %>%
+  mutate(IDM=as.numeric(gsub("\\.","",IDM)))
+>>>>>>> 35ec95befc28bd554b5529e23add30a7076905a1
 
 total_defunciones_CCAA<-
   rbind(andalucia_rec,aragon_rec,asturias_rec,cantabria_data,cat_rec,clm_rec,cyl_rec,euskadi_rec,extremadura_rec,gal_rec,mad_rec,mrc_rec,nvr_data,rioja_data,vlc_rec) %>% 
